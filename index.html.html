@@ -48,8 +48,27 @@
         body { background-color: #0B0F19; color: #fff; font-family: 'Inter', sans-serif; }
         
         /* Animaciones Scroll Reveal */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal { opacity: 0; transform: translateY(34px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1); transition-delay: var(--reveal-delay, 0ms); }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+        .reveal-left { transform: translateX(-34px) scale(0.98); }
+        .reveal-right { transform: translateX(34px) scale(0.98); }
+        .reveal-zoom { transform: translateY(18px) scale(0.94); }
+
+        @keyframes grid-drift {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 40px 40px, 40px 40px; }
+        }
+
+        @keyframes logo-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+
+        @keyframes shine-sweep {
+            0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+            20% { opacity: 0.75; }
+            55%, 100% { transform: translateX(160%) skewX(-18deg); opacity: 0; }
+        }
 
         /* Animación Pulso WhatsApp */
         @keyframes pulse-wa {
@@ -75,14 +94,56 @@
         .solar-bar { animation: solar-charge 3s infinite ease-in-out; }
 
         /* Efecto Glassmorphism para tarjetas premium */
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass-card:hover { border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 10px 30px -5px rgba(6, 182, 212, 0.15); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease; }
+        .glass-card:hover { transform: translateY(-6px); border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 18px 38px -12px rgba(6, 182, 212, 0.26); background: rgba(255, 255, 255, 0.055); }
 
         /* Fondo grid tecnológico */
-        .tech-grid { background-image: linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px); background-size: 40px 40px; }
+        .tech-grid { background-image: linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px); background-size: 40px 40px; animation: grid-drift 18s linear infinite; }
         
         /* Gradiente texto */
         .text-gradient { background: linear-gradient(to right, #06B6D4, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+        .brand-lockup {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.9rem;
+            overflow: hidden;
+            padding: 0.7rem 1rem 0.7rem 0.75rem;
+            border-radius: 1.25rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
+            box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+        }
+        .brand-lockup::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 42%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+            animation: shine-sweep 4.5s ease-in-out infinite;
+        }
+        .brand-logo-mark {
+            width: 4.8rem;
+            height: 4.8rem;
+            object-fit: contain;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.96);
+            padding: 0.35rem;
+            box-shadow: 0 0 0 1px rgba(6,182,212,0.24), 0 16px 34px rgba(6,182,212,0.16);
+            animation: logo-float 5.5s ease-in-out infinite;
+        }
+        .hero-logo-watermark {
+            width: 5rem;
+            height: 5rem;
+            object-fit: contain;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.92);
+            padding: 0.35rem;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+        }
+        .animated-action { transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease; }
+        .animated-action:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -18px rgba(6,182,212,.55); }
 
         .media-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
         .hero-evidence::after {
@@ -123,6 +184,15 @@
             max-height: 84vh;
             max-width: min(92vw, 1120px);
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -130,7 +200,7 @@
     <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
        target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl pulse-wa hover:scale-110 transition-transform">
+       class="hidden md:flex fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl pulse-wa hover:scale-110 transition-transform">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
@@ -145,7 +215,14 @@
 
         <div class="container mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
             <!-- Columna Texto -->
-            <div class="reveal">
+            <div class="reveal reveal-left">
+                <a href="#hero" class="brand-lockup mb-8 animated-action" aria-label="Seguridad 360 Mérida">
+                    <img src="assets/seguridad360/Logo.png" alt="Logo Seguridad 360" class="brand-logo-mark">
+                    <span class="relative z-10">
+                        <span class="block text-2xl md:text-3xl font-black tracking-wide text-white leading-none">Seguridad 360</span>
+                        <span class="block text-xs md:text-sm font-semibold text-cian-seguridad uppercase tracking-[0.22em] mt-1">Mérida</span>
+                    </span>
+                </a>
                 <span class="inline-block bg-cian-seguridad/10 text-cian-seguridad text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-cian-seguridad/20">
                     <i class="fas fa-location-dot mr-2"></i>Entrega y Asesoría en Mérida, Yucatán
                 </span>
@@ -159,10 +236,10 @@
                 <div class="flex flex-col sm:flex-row gap-4 mb-6">
                     <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
                        target="_blank" 
-                       class="bg-[#25D366] text-white font-bold text-center py-4 px-8 rounded-xl hover:bg-[#1da851] transition-all shadow-lg flex items-center justify-center space-x-2">
+                       class="animated-action bg-[#25D366] text-white font-bold text-center py-4 px-8 rounded-xl hover:bg-[#1da851] transition-all shadow-lg flex items-center justify-center space-x-2">
                         <i class="fab fa-whatsapp text-2xl"></i> <span>Cotizar por WhatsApp</span>
                     </a>
-                    <a href="#soluciones" class="bg-white/5 text-white border border-white/20 font-bold text-center py-4 px-8 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center">
+                    <a href="#soluciones" class="animated-action bg-white/5 text-white border border-white/20 font-bold text-center py-4 px-8 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center">
                         Ver soluciones
                     </a>
                 </div>
@@ -176,10 +253,11 @@
             </div>
 
             <!-- Columna Visual -->
-            <div class="relative reveal">
+            <div class="relative reveal reveal-right">
                 <div class="relative z-10">
                     <div class="w-full h-[26rem] glass-card rounded-3xl relative overflow-hidden hero-evidence">
                         <video class="media-cover" src="assets/seguridad360/intrusion-video.mp4" poster="assets/seguridad360/intrusion-ladrones.png" autoplay muted loop playsinline controls></video>
+                        <img src="assets/seguridad360/Logo.png" alt="Seguridad 360" class="hero-logo-watermark absolute top-5 right-5 z-10 hidden sm:block">
                         <div class="absolute top-5 left-5 z-10 threat-label text-white text-xs font-black tracking-wide px-4 py-2 rounded-full uppercase">
                             Evidencia real: entrada no autorizada
                         </div>
@@ -265,7 +343,7 @@
                         </div>
                         <p class="text-gray-400 mb-6 text-sm">Ideal para exteriores, entradas, patios, negocios, terrenos o bodegas sin depender de cableado eléctrico.</p>
                         <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-solar-panel text-solar mr-3"></i>Energía solar + 8 baterías incluidas</li>
+                            <li><i class="fas fa-solar-panel text-solar mr-3"></i>Energía solar + 6 baterías recargables de alta capacidad</li>
                             <li><i class="fas fa-router text-solar mr-3"></i>Router WiFi incluido gratis</li>
                             <li><i class="fas fa-shield-halved text-solar mr-3"></i>Cuerpo metálico de uso rudo</li>
                             <li><i class="fas fa-bell text-solar mr-3"></i>Detección de movimiento y alertas</li>
@@ -349,7 +427,7 @@
                 <div class="grid grid-cols-2 gap-6 mb-8">
                     <div class="flex items-start space-x-3">
                         <i class="fas fa-solar-panel text-solar text-2xl mt-1"></i>
-                        <div><h4 class="font-bold">Carga Ininterrumpida</h4><p class="text-sm text-gray-400">Panel solar + 8 baterías.</p></div>
+                        <div><h4 class="font-bold">Carga Ininterrumpida</h4><p class="text-sm text-gray-400">Panel solar + 6 baterías recargables de alta capacidad.</p></div>
                     </div>
                     <div class="flex items-start space-x-3">
                         <i class="fas fa-panorama text-cian-seguridad text-2xl mt-1"></i>
@@ -514,70 +592,7 @@
     </section>
 
     <!-- =========================================
-         7. SECCIÓN DE PAQUETES
-    ========================================== -->
-    <section id="paquetes" class="py-20 bg-noche">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Paquetes diseñados para tu tranquilidad</h2>
-                <p class="text-gray-400">Elige la protección ideal. Precios especiales al preguntar por WhatsApp.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
-                <!-- Paquete 1 -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col reveal">
-                    <h3 class="text-xl font-bold text-azul-electrico mb-2">Protección Básica</h3>
-                    <p class="text-3xl font-black mb-1">Desde $____ MXN</p>
-                    <p class="text-xs text-gray-500 mb-6">Pregunta disponibilidad por WhatsApp</p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                        <li><i class="fas fa-check mr-2 text-azul-electrico"></i>Alarma WiFi</li>
-                        <li><i class="fas fa-check mr-2 text-azul-electrico"></i>Sensores inalámbricos</li>
-                        <li><i class="fas fa-check mr-2 text-azul-electrico"></i>Sirena sonora</li>
-                        <li><i class="fas fa-check mr-2 text-azul-electrico"></i>Alertas al celular</li>
-                    </ul>
-                    <a href="https://wa.me/529991850841?text=Hola,%20me%20interesa%20el%20Paquete%20Protección%20Básica." target="_blank" class="block text-center bg-white/5 border border-white/20 text-white font-bold py-3 rounded-xl hover:bg-white/10 transition-all">
-                        Cotizar paquete básico
-                    </a>
-                </div>
-
-                <!-- Paquete 2 (Destacado) -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col reveal border-cian-seguridad transform lg:scale-105 relative shadow-2xl shadow-cian-seguridad/10">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cian-seguridad text-noche text-xs font-bold px-4 py-1 rounded-full uppercase">El más vendido</div>
-                    <h3 class="text-xl font-bold text-cian-seguridad mb-2">Protección Exterior</h3>
-                    <p class="text-3xl font-black mb-1">Desde $____ MXN</p>
-                    <p class="text-xs text-gray-500 mb-6">Precio especial por paquete</p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                        <li><i class="fas fa-check mr-2 text-cian-seguridad"></i>Cámara solar WiFi</li>
-                        <li><i class="fas fa-check mr-2 text-cian-seguridad"></i>Panel solar + 8 baterías</li>
-                        <li><i class="fas fa-check mr-2 text-cian-seguridad"></i>Grabación microSD</li>
-                        <li><i class="fas fa-check mr-2 text-cian-seguridad"></i>Alertas de movimiento</li>
-                    </ul>
-                    <a href="https://wa.me/529991850841?text=Hola,%20me%20interesa%20el%20Paquete%20Protección%20Exterior%20(Cámara%20Solar)." target="_blank" class="block text-center bg-cian-seguridad text-noche font-bold py-3 rounded-xl hover:bg-cyan-400 transition-all">
-                        Cotizar cámara solar
-                    </a>
-                </div>
-
-                <!-- Paquete 3 -->
-                <div class="glass-card rounded-2xl p-8 flex flex-col reveal">
-                    <h3 class="text-xl font-bold text-solar mb-2">Protección Completa</h3>
-                    <p class="text-3xl font-black mb-1">Desde $____ MXN</p>
-                    <p class="text-xs text-gray-500 mb-6">La solución definitiva</p>
-                    <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                        <li><i class="fas fa-check mr-2 text-solar"></i>Cámara solar WiFi</li>
-                        <li><i class="fas fa-check mr-2 text-solar"></i>Alarma WiFi o WiFi + 3G</li>
-                        <li><i class="fas fa-check mr-2 text-solar"></i>Router WiFi dedicado opcional</li>
-                        <li><i class="fas fa-check mr-2 text-solar"></i>Asesoría de configuración</li>
-                    </ul>
-                    <a href="https://wa.me/529991850841?text=Hola,%20me%20interesa%20el%20Paquete%20Protección%20Completa." target="_blank" class="block text-center bg-white/5 border border-white/20 text-white font-bold py-3 rounded-xl hover:bg-white/10 transition-all">
-                        Quiero protección completa
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================
-         8. SECCIÓN DE CONFIANZA Y FORMULARIO CORTO
+         7. SECCIÓN DE CONFIANZA Y FORMULARIO CORTO
     ========================================== -->
     <section id="confianza" class="py-20 bg-grafito">
         <div class="container mx-auto px-6">
@@ -638,7 +653,7 @@
                                 <option>Cámara solar</option>
                                 <option>Alarma WiFi</option>
                                 <option>Alarma WiFi + 3G</option>
-                                <option>Paquete completo</option>
+                                <option>Quiero recomendación</option>
                             </select>
                         </div>
                         <button type="submit" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#1da851] transition-all flex items-center justify-center space-x-2 mt-4">
@@ -737,7 +752,7 @@
                         <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
                     </button>
                     <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        Sí, cuenta con panel solar que la carga durante el día, y 8 baterías incluidas que mantienen la energía durante la noche o días nublados.
+                        Sí, cuenta con panel solar que la carga durante el día, y 6 baterías recargables de alta capacidad que mantienen la energía durante la noche o días nublados.
                     </div>
                 </div>
                 <!-- FAQ 2 -->
@@ -822,7 +837,7 @@
         <div class="container mx-auto px-6 text-center relative z-10 reveal">
             <h2 class="text-3xl md:text-5xl font-black text-white mb-4">Empieza a proteger tu casa o negocio hoy</h2>
             <p class="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Cuéntanos qué quieres proteger y te recomendamos la mejor opción: cámara solar, alarma WiFi, alarma WiFi + 3G o paquete completo.
+                Cuéntanos qué quieres proteger y te recomendamos la mejor opción: cámara solar, alarma WiFi o alarma WiFi + 3G.
             </p>
             <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
                target="_blank" 
@@ -842,7 +857,13 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div>
-                    <h3 class="text-2xl font-black text-gradient mb-4">Seguridad 360 Mérida</h3>
+                    <a href="#hero" class="brand-lockup mb-5 animated-action" aria-label="Seguridad 360 Mérida">
+                        <img src="assets/seguridad360/Logo.png" alt="Logo Seguridad 360" class="brand-logo-mark">
+                        <span class="relative z-10">
+                            <span class="block text-2xl font-black tracking-wide text-white leading-none">Seguridad 360</span>
+                            <span class="block text-xs font-semibold text-cian-seguridad uppercase tracking-[0.22em] mt-1">Mérida</span>
+                        </span>
+                    </a>
                     <p class="text-gray-400 text-sm">Protección inteligente para tu casa o negocio en Yucatán. Cámaras solares, alarmas WiFi y respaldo total.</p>
                 </div>
                 <div>
@@ -851,7 +872,6 @@
                         <li><a href="#camara-solar" class="hover:text-cian-seguridad">Cámaras solares WiFi</a></li>
                         <li><a href="#alarmas" class="hover:text-cian-seguridad">Alarmas WiFi</a></li>
                         <li><a href="#alarmas" class="hover:text-cian-seguridad">Alarmas WiFi + 3G</a></li>
-                        <li><a href="#paquetes" class="hover:text-cian-seguridad">Paquetes completos</a></li>
                     </ul>
                 </div>
                 <div>
@@ -897,8 +917,13 @@
             });
         }, { threshold: 0.1 });
 
-        reveals.forEach(reveal => {
+        reveals.forEach((reveal, index) => {
+            reveal.style.setProperty('--reveal-delay', `${Math.min((index % 6) * 80, 400)}ms`);
             revealObserver.observe(reveal);
+        });
+
+        document.querySelectorAll('a, button').forEach((element) => {
+            element.classList.add('animated-action');
         });
 
         const solarGalleryImages = [
