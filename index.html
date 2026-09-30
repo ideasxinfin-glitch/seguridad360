@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cámaras solares WiFi y alarmas inteligentes en Mérida | Seguridad 360 Mérida</title>
-    <meta name="description" content="Protege tu casa o negocio en Mérida con cámaras solares WiFi, alarmas WiFi y alarmas WiFi + 3G con alertas en tiempo real. Entrega local y asesoría sin compromiso.">
-    <meta name="keywords" content="cámaras solares Mérida, cámaras WiFi Mérida, alarmas para casa Mérida, alarmas WiFi, seguridad para negocios Mérida, cámaras de seguridad Yucatán">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Seguridad 360 Mérida | Cámaras Solares y Alarmas Inteligentes">
-    <meta property="og:description" content="Soluciones de seguridad WiFi con alertas en tiempo real, grabación local, sirena y monitoreo desde tu celular en Mérida, Yucatán.">
-    
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Cámara solar WiFi $850 con router gratis, video portero $500 y alarmas WiFi desde $950. Instalación profesional, pago contra entrega y 3 meses de garantía en Mérida, Yucatán.">
+    <meta name="keywords" content="cámaras solares Mérida, cámaras WiFi Mérida, alarmas para casa Mérida, alarmas WiFi, instalación de cámaras Mérida, seguridad para negocios Mérida">
+
+    <meta property="og:title" content="Seguridad 360 Mérida | Cámaras solares y alarmas WiFi">
+    <meta property="og:description" content="Pago contra entrega, instalación profesional y 3 meses de garantía. Cámara solar $850 con router gratis, alarmas desde $950.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seguridad360.vercel.app/">
+    <meta property="og:image" content="https://seguridad360.vercel.app/assets/seguridad360/web/og-seguridad360.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_MX">
+    <meta name="theme-color" content="#0A1630">
+    <link rel="icon" type="image/webp" href="assets/seguridad360/web/logo360.webp">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter e Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script>
@@ -27,16 +29,25 @@
             theme: {
                 extend: {
                     colors: {
-                        'noche': '#0B0F19',
-                        'noche-claro': '#111827',
-                        'grafito': '#1F2937',
-                        'cian-seguridad': '#06B6D4',
-                        'azul-electrico': '#3B82F6',
-                        'solar': '#F59E0B',
-                        'gris-fondo': '#F9FAFB',
+                        tinta: '#0A1630',        // azul marino de marca (fondos oscuros)
+                        'tinta-2': '#12224A',
+                        marca: '#1D5BD8',        // azul del logo
+                        'marca-claro': '#E8F0FF',
+                        superficie: '#F5F7FB',
+                        linea: '#E3E8F1',
+                        texto: '#0F172A',
+                        suave: '#5B6478',
+                        solar: '#F2A900',
+                        wa: '#25D366',
+                        'wa-osc': '#1DA851',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        suave: '0 1px 2px rgba(15,23,42,.04), 0 8px 24px -12px rgba(15,23,42,.12)',
+                        alta: '0 2px 4px rgba(15,23,42,.04), 0 24px 48px -20px rgba(15,23,42,.25)',
                     }
                 }
             }
@@ -45,937 +56,703 @@
 
     <style>
         html { scroll-behavior: smooth; }
-        body { background-color: #0B0F19; color: #fff; font-family: 'Inter', sans-serif; }
-        
-        /* Animaciones Scroll Reveal */
-        .reveal { opacity: 0; transform: translateY(34px) scale(0.98); transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1); transition-delay: var(--reveal-delay, 0ms); }
-        .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
-        .reveal-left { transform: translateX(-34px) scale(0.98); }
-        .reveal-right { transform: translateX(34px) scale(0.98); }
-        .reveal-zoom { transform: translateY(18px) scale(0.94); }
+        body { background: #fff; color: #0F172A; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        section[id], header[id] { scroll-margin-top: 5rem; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; letter-spacing: -0.02em; }
 
-        @keyframes grid-drift {
-            0% { background-position: 0 0, 0 0; }
-            100% { background-position: 40px 40px, 40px 40px; }
-        }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.active { opacity: 1; transform: none; }
 
-        @keyframes logo-float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
-        }
+        .eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #1D5BD8; }
+        .eyebrow::before { content: ""; width: 1.5rem; height: 2px; background: currentColor; border-radius: 2px; }
+        .eyebrow-claro { color: #8FB4FF; }
 
-        @keyframes shine-sweep {
-            0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
-            20% { opacity: 0.75; }
-            55%, 100% { transform: translateX(160%) skewX(-18deg); opacity: 0; }
-        }
+        .card { background: #fff; border: 1px solid #E3E8F1; border-radius: 1.5rem; box-shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px -12px rgba(15,23,42,.12); transition: box-shadow .3s ease, transform .3s ease; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(15,23,42,.04), 0 24px 48px -20px rgba(15,23,42,.25); }
 
-        /* Animación Pulso WhatsApp */
-        @keyframes pulse-wa {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .pulse-wa { animation: pulse-wa 2s infinite; }
+        .hero-bg { background: radial-gradient(1200px 600px at 85% -10%, rgba(29,91,216,.45), transparent 60%), radial-gradient(800px 500px at -10% 110%, rgba(242,169,0,.12), transparent 60%), #0A1630; }
 
-        /* Animación Ondas WiFi */
-        @keyframes wifi-wave {
-            0% { transform: scale(0.8); opacity: 0.8; }
-            100% { transform: scale(2.5); opacity: 0; }
-        }
-        .wifi-wave { animation: wifi-wave 2s infinite; }
-        
-        /* Animación Carga Solar */
-        @keyframes solar-charge {
-            0% { width: 0%; opacity: 0.5; }
-            50% { width: 100%; opacity: 1; }
-            100% { width: 0%; opacity: 0.5; }
-        }
-        .solar-bar { animation: solar-charge 3s infinite ease-in-out; }
+        @keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,.6); } 70% { box-shadow: 0 0 0 14px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+        .pulse-wa { animation: pulse-wa 2.4s infinite; }
 
-        /* Efecto Glassmorphism para tarjetas premium */
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.08); transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease; }
-        .glass-card:hover { transform: translateY(-6px); border-color: rgba(6, 182, 212, 0.5); box-shadow: 0 18px 38px -12px rgba(6, 182, 212, 0.26); background: rgba(255, 255, 255, 0.055); }
+        .gallery-thumb { border: 2px solid transparent; opacity: .6; transition: opacity .2s, border-color .2s; }
+        .gallery-thumb.active, .gallery-thumb:hover { border-color: #1D5BD8; opacity: 1; }
+        .no-scrollbar { scrollbar-width: none; } .no-scrollbar::-webkit-scrollbar { display: none; }
 
-        /* Fondo grid tecnológico */
-        .tech-grid { background-image: linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px); background-size: 40px 40px; animation: grid-drift 18s linear infinite; }
-        
-        /* Gradiente texto */
-        .text-gradient { background: linear-gradient(to right, #06B6D4, #3B82F6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .faq-icon { transform: rotate(45deg); }
 
-        .brand-lockup {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.9rem;
-            overflow: hidden;
-            padding: 0.7rem 1rem 0.7rem 0.75rem;
-            border-radius: 1.25rem;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.035));
-            box-shadow: 0 18px 45px rgba(0,0,0,0.22);
-        }
-        .brand-lockup::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            width: 42%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-            animation: shine-sweep 4.5s ease-in-out infinite;
-        }
-        .brand-logo-mark {
-            width: 4.8rem;
-            height: 4.8rem;
-            object-fit: contain;
-            border-radius: 1rem;
-            background: rgba(255,255,255,0.96);
-            padding: 0.35rem;
-            box-shadow: 0 0 0 1px rgba(6,182,212,0.24), 0 16px 34px rgba(6,182,212,0.16);
-            animation: logo-float 5.5s ease-in-out infinite;
-        }
-        .hero-logo-watermark {
-            width: 5rem;
-            height: 5rem;
-            object-fit: contain;
-            border-radius: 1rem;
-            background: rgba(255,255,255,0.92);
-            padding: 0.35rem;
-            box-shadow: 0 14px 35px rgba(0,0,0,0.35);
-        }
-        .animated-action { transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease; }
-        .animated-action:hover { transform: translateY(-3px); box-shadow: 0 18px 34px -18px rgba(6,182,212,.55); }
-
-        .media-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .hero-evidence::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(11,15,25,0.04), rgba(11,15,25,0.7));
-            pointer-events: none;
-        }
-        .threat-label {
-            background: rgba(239, 68, 68, 0.92);
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.16), 0 12px 30px rgba(239,68,68,0.25);
-        }
-        .gallery-main {
-            aspect-ratio: 1 / 1;
-            background: #050811;
-        }
-        .gallery-thumb {
-            border: 2px solid transparent;
-            opacity: 0.68;
-            transition: transform .2s ease, opacity .2s ease, border-color .2s ease;
-        }
-        .gallery-thumb.active, .gallery-thumb:hover {
-            border-color: #06B6D4;
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-        .lightbox {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .2s ease;
-        }
-        .lightbox.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .lightbox img {
-            max-height: 84vh;
-            max-width: min(92vw, 1120px);
-        }
+        .lightbox { opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+        .lightbox.open { opacity: 1; pointer-events: auto; }
+        .lightbox img { max-height: 84vh; max-width: min(92vw, 1120px); }
 
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
+            *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+            .reveal { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
-       target="_blank" 
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Me%20interesa%20cotizar%20una%20c%C3%A1mara%20o%20alarma%20para%20mi%20casa%20o%20negocio.%20%C2%BFMe%20puedes%20dar%20informaci%C3%B3n%3F" target="_blank" rel="noopener"
        aria-label="Escríbenos por WhatsApp"
-       class="flex fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl pulse-wa hover:scale-110 transition-transform">
+       class="flex fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 bg-wa text-white p-4 rounded-full shadow-alta pulse-wa hover:scale-105 transition-transform">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
     <!-- =========================================
-         1. HERO SECTION
+         ENCABEZADO
     ========================================== -->
-    <header id="hero" class="relative min-h-screen flex items-center tech-grid overflow-hidden">
-        <!-- Fondo gradientes -->
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-noche via-noche-claro to-noche z-[-2]"></div>
-        <div class="absolute top-20 -right-20 w-96 h-96 bg-cian-seguridad/20 rounded-full filter blur-[100px] z-[-1]"></div>
-        <div class="absolute bottom-20 -left-20 w-96 h-96 bg-solar/10 rounded-full filter blur-[100px] z-[-1]"></div>
+    <div class="bg-tinta text-white/85 text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-5 py-2 flex items-center justify-center gap-x-5 gap-y-1 flex-wrap text-center">
+            <span><i class="fas fa-hand-holding-dollar text-wa mr-1.5"></i>Pago contra entrega</span>
+            <span class="hidden sm:inline"><i class="fas fa-shield-halved text-[#8FB4FF] mr-1.5"></i>3 meses de garantía</span>
+            <span><i class="fas fa-location-dot text-solar mr-1.5"></i>Entrega en Mérida</span>
+        </div>
+    </div>
 
-        <div class="container mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Columna Texto -->
-            <div class="reveal reveal-left">
-                <a href="#hero" class="brand-lockup mb-8 animated-action" aria-label="Seguridad 360 Mérida">
-                    <img src="assets/seguridad360/logo360.png" alt="Logo Seguridad 360" class="brand-logo-mark">
-                    <span class="relative z-10">
-                        <span class="block text-2xl md:text-3xl font-black tracking-wide text-white leading-none">Seguridad 360</span>
-                        <span class="block text-xs md:text-sm font-semibold text-cian-seguridad uppercase tracking-[0.22em] mt-1">Mérida</span>
-                    </span>
+    <nav id="topbar" class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-linea">
+        <div class="max-w-7xl mx-auto px-5 h-16 md:h-[4.5rem] flex items-center justify-between gap-4">
+            <a href="#hero" class="flex items-center gap-2.5 shrink-0" aria-label="Seguridad 360 Mérida, inicio">
+                <img src="assets/seguridad360/web/logo360.webp" alt="" width="40" height="40" class="w-10 h-10 object-contain">
+                <span class="font-display font-extrabold text-lg leading-none text-tinta">Seguridad 360<span class="block text-[10px] font-bold text-marca uppercase tracking-[0.24em] mt-1">Mérida</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-suave">
+                <a href="#productos" class="hover:text-tinta">Productos</a>
+                <a href="#camara-solar" class="hover:text-tinta">Cámara solar</a>
+                <a href="#alarmas" class="hover:text-tinta">Alarmas</a>
+                <a href="#instalacion" class="hover:text-tinta">Instalación</a>
+                <a href="#faq" class="hover:text-tinta">Preguntas</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20cotizar.%20%C2%BFMe%20puedes%20dar%20informaci%C3%B3n%3F" target="_blank" rel="noopener"
+                   class="bg-wa text-white font-semibold text-sm py-2.5 px-4 rounded-full hover:bg-wa-osc flex items-center gap-2 transition-colors">
+                    <i class="fab fa-whatsapp text-lg"></i><span>Cotizar</span>
                 </a>
-                <span class="inline-block bg-cian-seguridad/10 text-cian-seguridad text-sm font-medium px-4 py-1.5 rounded-full mb-6 border border-cian-seguridad/20">
-                    <i class="fas fa-location-dot mr-2"></i>Entrega y Asesoría en Mérida, Yucatán
-                </span>
-                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
-                    Protege tu casa o negocio en Mérida con <span class="text-gradient">cámaras solares y alarmas inteligentes</span>
+                <button type="button" id="menuBtn" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"
+                        class="lg:hidden w-10 h-10 rounded-full border border-linea flex items-center justify-center text-tinta">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-linea bg-white">
+            <div class="max-w-7xl mx-auto px-5 py-3 grid grid-cols-2 gap-1 text-[15px] font-medium text-tinta">
+                <a href="#productos" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Productos</a>
+                <a href="#camara-solar" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Cámara solar</a>
+                <a href="#alarmas" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Alarmas</a>
+                <a href="#instalacion" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Instalación</a>
+                <a href="#como-comprar" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Cómo comprar</a>
+                <a href="#faq" onclick="toggleMenu(false)" class="py-3 px-3 rounded-xl hover:bg-superficie">Preguntas</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =========================================
+         1. HERO
+    ========================================== -->
+    <header id="hero" class="hero-bg text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-5 pt-12 pb-16 md:pt-20 md:pb-24 grid lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-16 items-center">
+            <div class="reveal">
+                <span class="eyebrow eyebrow-claro mb-5">Seguridad para casa y negocio · Mérida, Yuc.</span>
+                <h1 class="text-[2.5rem] leading-[1.08] md:text-6xl md:leading-[1.05] font-extrabold mb-6">
+                    Mira tu casa o negocio desde tu celular, <span class="text-[#8FB4FF]">estés donde estés.</span>
                 </h1>
-                <p class="text-lg text-gray-300 mb-8 max-w-xl">
-                    Soluciones de seguridad WiFi con alertas en tiempo real, grabación local, sirena y monitoreo desde tu celular. Sin cableado complicado.
+                <p class="text-lg text-white/75 mb-8 max-w-xl">
+                    Cámaras solares WiFi, video porteros y alarmas con alerta al celular. Te las instalamos, te las dejamos funcionando y pagas al recibir.
                 </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                    <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
-                       target="_blank" 
-                       class="animated-action bg-[#25D366] text-white font-bold text-center py-4 px-8 rounded-xl hover:bg-[#1da851] transition-all shadow-lg flex items-center justify-center space-x-2">
-                        <i class="fab fa-whatsapp text-2xl"></i> <span>Cotizar por WhatsApp</span>
+
+                <div class="flex flex-col sm:flex-row gap-3 mb-10">
+                    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Me%20interesa%20cotizar%20una%20c%C3%A1mara%20o%20alarma%20para%20mi%20casa%20o%20negocio.%20%C2%BFMe%20puedes%20dar%20informaci%C3%B3n%3F" target="_blank" rel="noopener"
+                       class="bg-wa hover:bg-wa-osc text-white font-semibold py-4 px-7 rounded-full flex items-center justify-center gap-2 transition-colors shadow-lg shadow-black/20">
+                        <i class="fab fa-whatsapp text-xl"></i> Cotizar por WhatsApp
                     </a>
-                    <a href="#soluciones" class="animated-action bg-white/5 text-white border border-white/20 font-bold text-center py-4 px-8 rounded-xl hover:bg-white/10 transition-all flex items-center justify-center">
-                        Ver soluciones
+                    <a href="#productos" class="border border-white/25 hover:bg-white/10 text-white font-semibold py-4 px-7 rounded-full text-center transition-colors">
+                        Ver productos y precios
                     </a>
                 </div>
-                <p class="text-sm text-gray-400">
-                    <i class="fas fa-check-circle text-cian-seguridad mr-2"></i>Entrega en Mérida 
-                    <span class="mx-2">·</span> 
-                    <i class="fas fa-check-circle text-cian-seguridad mr-2"></i>Asesoría de configuración 
-                    <span class="mx-2">·</span> 
-                    <i class="fas fa-check-circle text-cian-seguridad mr-2"></i>Opciones para casa y negocio
-                </p>
+
+                <dl class="grid grid-cols-3 gap-3 max-w-xl">
+                    <a href="#camara-solar" class="rounded-2xl bg-white/[0.06] border border-white/10 p-3 sm:p-4 hover:bg-white/10 transition-colors">
+                        <dt class="text-[11px] sm:text-xs text-white/60">Cámara solar</dt>
+                        <dd class="font-display text-xl sm:text-2xl font-extrabold">$850</dd>
+                        <dd class="text-[10px] sm:text-xs text-wa font-semibold">+ router gratis</dd>
+                    </a>
+                    <a href="#productos" class="rounded-2xl bg-white/[0.06] border border-white/10 p-3 sm:p-4 hover:bg-white/10 transition-colors">
+                        <dt class="text-[11px] sm:text-xs text-white/60">Video portero</dt>
+                        <dd class="font-display text-xl sm:text-2xl font-extrabold">$500</dd>
+                        <dd class="text-[10px] sm:text-xs text-white/60">WiFi</dd>
+                    </a>
+                    <a href="#alarmas" class="rounded-2xl bg-white/[0.06] border border-white/10 p-3 sm:p-4 hover:bg-white/10 transition-colors">
+                        <dt class="text-[11px] sm:text-xs text-white/60">Alarmas WiFi</dt>
+                        <dd class="font-display text-xl sm:text-2xl font-extrabold">$950</dd>
+                        <dd class="text-[10px] sm:text-xs text-white/60">desde</dd>
+                    </a>
+                </dl>
             </div>
 
-            <!-- Columna Visual -->
-            <div class="relative reveal reveal-right">
-                <div class="relative z-10">
-                    <div class="w-full h-[26rem] glass-card rounded-3xl relative overflow-hidden hero-evidence">
-                        <video class="media-cover" src="assets/seguridad360/intrusion-video.mp4" poster="assets/seguridad360/intrusion-ladrones.png" autoplay muted loop playsinline controls></video>
-                        <img src="assets/seguridad360/logo360.png" alt="Seguridad 360" class="hero-logo-watermark absolute top-5 right-5 z-10 hidden sm:block">
-                        <div class="absolute top-5 left-5 z-10 threat-label text-white text-xs font-black tracking-wide px-4 py-2 rounded-full uppercase">
-                            Evidencia real: entrada no autorizada
-                        </div>
-                        <div class="absolute bottom-5 left-5 right-5 z-10 grid grid-cols-2 gap-3">
-                            <button type="button" onclick="openLightbox('assets/seguridad360/intrusion-ladrones.png', 'Intrusos detectados en camara de seguridad')" class="group text-left bg-noche/80 border border-red-400/40 rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-red-400">
-                                <img src="assets/seguridad360/intrusion-ladrones.png" alt="Intrusos detectados por camara de seguridad" class="h-20 w-full object-cover group-hover:scale-105 transition-transform">
-                                <span class="block px-3 py-2 text-xs font-bold text-red-100">Sin vigilancia, entran sin avisar</span>
-                            </button>
-                            <button type="button" onclick="openLightbox('assets/seguridad360/intrusion-vacia.png', 'Patio sin proteccion visible')" class="group text-left bg-noche/80 border border-white/15 rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                                <img src="assets/seguridad360/intrusion-vacia.png" alt="Patio sin proteccion visible de noche" class="h-20 w-full object-cover group-hover:scale-105 transition-transform">
-                                <span class="block px-3 py-2 text-xs font-bold text-gray-100">Lo que no ves tambien importa</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Mockup Celular Alerta -->
-                    <div class="absolute -bottom-10 -left-10 w-64 bg-noche-claro p-4 rounded-2xl shadow-2xl border border-white/10 animate-bounce" style="animation-duration: 3s;">
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-red-500/20 p-2 rounded-full"><i class="fas fa-bell text-red-500"></i></div>
-                            <div>
-                                <p class="text-xs text-gray-400">Alerta de Movimiento</p>
-                                <p class="text-sm font-bold">Revisar cámara frontal</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="reveal relative">
+                <div class="relative rounded-[1.75rem] overflow-hidden border border-white/10 shadow-2xl shadow-black/40 bg-black aspect-[16/11]">
+                    <video class="w-full h-full object-cover" src="assets/seguridad360/intrusion-video.mp4" poster="assets/seguridad360/web/intrusion-ladrones.webp" autoplay muted loop playsinline></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                    <span class="absolute top-4 left-4 inline-flex items-center gap-2 bg-red-600/90 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Grabación real
+                    </span>
+                </div>
+                <div class="absolute -bottom-6 left-4 sm:-left-6 bg-white text-texto rounded-2xl shadow-alta p-4 flex items-center gap-3 w-64">
+                    <span class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0"><i class="fas fa-bell"></i></span>
+                    <span>
+                        <span class="block text-xs text-suave">Ahora · Alerta de movimiento</span>
+                        <span class="block text-sm font-semibold">Movimiento en patio trasero</span>
+                    </span>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- =========================================
-         2. SECCIÓN DE PROBLEMA
+         2. FRANJA DE CONFIANZA
     ========================================== -->
-    <section id="problema" class="py-20 bg-noche-claro">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 reveal">Un robo no avisa. <br class="hidden md:block"><span class="text-red-400">Tu sistema de seguridad sí puede hacerlo.</span></h2>
-            <p class="text-gray-400 max-w-2xl mx-auto mb-12 reveal">La tranquilidad de saber qué pasa en tu propiedad no tiene precio. Resolvemos las dudas más comunes antes de comprar.</p>
-            
+    <section id="garantias" class="border-b border-linea bg-white">
+        <div class="max-w-7xl mx-auto px-5 py-8 md:py-10 grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex items-start gap-3">
+                <span class="w-11 h-11 rounded-xl bg-marca-claro text-marca flex items-center justify-center shrink-0"><i class="fas fa-hand-holding-dollar"></i></span>
+                <span><b class="block text-[15px]">Pago contra entrega</b><span class="text-suave text-sm">Pagas cuando lo recibes</span></span>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="w-11 h-11 rounded-xl bg-marca-claro text-marca flex items-center justify-center shrink-0"><i class="fas fa-shield-halved"></i></span>
+                <span><b class="block text-[15px]">3 meses de garantía</b><span class="text-suave text-sm">Respaldo local</span></span>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="w-11 h-11 rounded-xl bg-marca-claro text-marca flex items-center justify-center shrink-0"><i class="fas fa-screwdriver-wrench"></i></span>
+                <span><b class="block text-[15px]">Instalación profesional</b><span class="text-suave text-sm">Desde $350</span></span>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="w-11 h-11 rounded-xl bg-marca-claro text-marca flex items-center justify-center shrink-0"><i class="fas fa-truck-fast"></i></span>
+                <span><b class="block text-[15px]">Entrega en Mérida</b><span class="text-suave text-sm">A domicilio o punto acordado</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         3. PRODUCTOS
+    ========================================== -->
+    <section id="productos" class="py-20 md:py-28 bg-superficie">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="max-w-2xl mb-12 md:mb-16 reveal">
+                <span class="eyebrow mb-4">Productos</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">Elige cómo quieres protegerte</h2>
+                <p class="text-suave text-lg">Precios claros, equipo listo para usar y asesoría por WhatsApp sin compromiso.</p>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card p-8 rounded-2xl text-left reveal">
-                    <i class="fas fa-house-circle-exclamation text-3xl text-solar mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">¿Tu casa se queda sola?</h3>
-                    <p class="text-gray-400 text-sm">Monitorea entradas y patios desde tu celular, recibiendo alertas instantáneas si hay movimiento.</p>
+                <!-- Cámara solar -->
+                <article class="card card-hover overflow-hidden flex flex-col reveal">
+                    <div class="relative aspect-[4/3] bg-superficie">
+                        <img loading="lazy" decoding="async" src="assets/seguridad360/web/camara-solar-blanca.webp" alt="Cámara solar WiFi con panel solar" class="w-full h-full object-cover">
+                        <span class="absolute top-4 left-4 bg-tinta text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Más vendida</span>
+                    </div>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Cámara Solar WiFi</h3>
+                        <p class="text-suave text-sm mt-1 mb-5">Para entradas, patios, negocios y terrenos. No necesita luz eléctrica.</p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="font-display text-4xl font-extrabold text-tinta">$850</span><span class="text-suave text-sm">MXN</span>
+                        </div>
+                        <p class="text-sm font-semibold text-wa-osc mb-6"><i class="fas fa-gift mr-1"></i> Incluye router WiFi gratis</p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Panel solar + 6 baterías recargables</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Alertas de movimiento al celular</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Graba en microSD aunque no haya internet</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Audio de doble vía · cuerpo metálico</li>
+                        </ul>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="#camara-solar" class="text-center border border-linea font-semibold py-3 rounded-full hover:bg-superficie text-sm">Ver detalles</a>
+                            <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20la%20C%C3%A1mara%20Solar%20WiFi%20de%20%24850%20con%20router%20gratis.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center bg-wa hover:bg-wa-osc text-white font-semibold py-3 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i>La quiero</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Video portero -->
+                <article class="card card-hover overflow-hidden flex flex-col reveal">
+                    <div class="aspect-[4/3] bg-white border-b border-linea">
+                        <img loading="lazy" decoding="async" src="assets/seguridad360/web/video-portero-producto.webp" alt="Video portero WiFi con timbre receptor" class="w-full h-full object-contain p-6">
+                    </div>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Video Portero WiFi</h3>
+                        <p class="text-suave text-sm mt-1 mb-5">Ve y habla con quien toca tu puerta desde el celular, aunque no estés.</p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="font-display text-4xl font-extrabold text-tinta">$500</span><span class="text-suave text-sm">MXN</span>
+                        </div>
+                        <p class="text-sm text-suave mb-6">Timbre receptor incluido</p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Cámara Full HD para tu entrada</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Ves y hablas desde el celular</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Visión nocturna</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Conexión WiFi</li>
+                        </ul>
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20el%20Video%20Portero%20WiFi%20de%20%24500.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center bg-wa hover:bg-wa-osc text-white font-semibold py-3 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i>Lo quiero</a>
+                    </div>
+                </article>
+
+                <!-- Alarmas -->
+                <article class="card card-hover overflow-hidden flex flex-col reveal md:col-span-2 lg:col-span-1">
+                    <div class="aspect-[4/3] bg-white border-b border-linea">
+                        <img loading="lazy" decoding="async" src="assets/seguridad360/web/alarma-wifi.webp" alt="Kit de alarma WiFi con sensores inalámbricos" class="w-full h-full object-contain p-6">
+                    </div>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Alarmas WiFi</h3>
+                        <p class="text-suave text-sm mt-1 mb-5">Sirena y alerta a tu celular si alguien abre una puerta o entra.</p>
+                        <div class="flex items-baseline gap-2 mb-1">
+                            <span class="text-suave text-sm">desde</span><span class="font-display text-4xl font-extrabold text-tinta">$950</span><span class="text-suave text-sm">MXN</span>
+                        </div>
+                        <p class="text-sm text-suave mb-6">3 opciones, con o sin respaldo 3G</p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sensores de puerta, ventana y movimiento</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sirena potente</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Control y alertas desde la app</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Puedes agregar más sensores</li>
+                        </ul>
+                        <a href="#alarmas" class="text-center bg-tinta hover:bg-tinta-2 text-white font-semibold py-3 rounded-full text-sm">Comparar alarmas <i class="fas fa-arrow-down ml-1"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         4. ¿QUÉ QUIERES PROTEGER?
+    ========================================== -->
+    <section id="que-proteger" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="eyebrow mb-4">¿No sabes cuál elegir?</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">Dinos qué quieres cuidar</h2>
+                <p class="text-suave text-lg">Esta es nuestra recomendación según el lugar. Te cotizamos todo junto, con instalación.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card p-7 flex flex-col reveal">
+                    <span class="w-12 h-12 rounded-2xl bg-marca-claro text-marca flex items-center justify-center text-xl mb-5"><i class="fas fa-house"></i></span>
+                    <h3 class="text-xl font-bold text-tinta">Casa</h3>
+                    <p class="text-suave text-sm mt-1 mb-5">Se queda sola mientras trabajas o sales de viaje.</p>
+                    <ul class="space-y-2 text-[15px] mb-7 flex-grow">
+                        <li class="flex justify-between gap-3 border-b border-linea pb-2"><span>Alarma WiFi</span><b>desde $950</b></li>
+                        <li class="flex justify-between gap-3"><span>Video Portero WiFi</span><b>$500</b></li>
+                    </ul>
+                    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20proteger%20mi%20CASA.%20%C2%BFQu%C3%A9%20me%20recomiendas%20y%20cu%C3%A1nto%20sale%20con%20instalaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center border border-linea hover:border-wa hover:bg-wa hover:text-white font-semibold py-3 rounded-full text-sm transition-colors"><i class="fab fa-whatsapp mr-1"></i>Cotizar para mi casa</a>
                 </div>
-                <div class="glass-card p-8 rounded-2xl text-left reveal">
-                    <i class="fas fa-store-slash text-3xl text-solar mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">¿Negocio sin vigilancia?</h3>
-                    <p class="text-gray-400 text-sm">Grabación local en microSD que sigue funcionando incluso si se va el internet.</p>
+                <div class="card p-7 flex flex-col reveal">
+                    <span class="w-12 h-12 rounded-2xl bg-marca-claro text-marca flex items-center justify-center text-xl mb-5"><i class="fas fa-store"></i></span>
+                    <h3 class="text-xl font-bold text-tinta">Negocio</h3>
+                    <p class="text-suave text-sm mt-1 mb-5">Local, oficina, taller o restaurante.</p>
+                    <ul class="space-y-2 text-[15px] mb-7 flex-grow">
+                        <li class="flex justify-between gap-3 border-b border-linea pb-2"><span>Cámara Solar WiFi</span><b>$850</b></li>
+                        <li class="flex justify-between gap-3"><span>Alarma WiFi</span><b>desde $950</b></li>
+                    </ul>
+                    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20proteger%20mi%20NEGOCIO.%20%C2%BFQu%C3%A9%20me%20recomiendas%20y%20cu%C3%A1nto%20sale%20con%20instalaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center border border-linea hover:border-wa hover:bg-wa hover:text-white font-semibold py-3 rounded-full text-sm transition-colors"><i class="fab fa-whatsapp mr-1"></i>Cotizar para mi negocio</a>
                 </div>
-                <div class="glass-card p-8 rounded-2xl text-left reveal">
-                    <i class="fas fa-warehouse text-3xl text-solar mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">¿Bodega o terreno remoto?</h3>
-                    <p class="text-gray-400 text-sm">Cámaras solares que no necesitan cableado eléctrico y alarmas con respaldo 3G.</p>
+                <div class="card p-7 flex flex-col reveal">
+                    <span class="w-12 h-12 rounded-2xl bg-marca-claro text-marca flex items-center justify-center text-xl mb-5"><i class="fas fa-warehouse"></i></span>
+                    <h3 class="text-xl font-bold text-tinta">Bodega o terreno</h3>
+                    <p class="text-suave text-sm mt-1 mb-5">Propiedad sola, sin luz o con internet inestable.</p>
+                    <ul class="space-y-2 text-[15px] mb-7 flex-grow">
+                        <li class="flex justify-between gap-3 border-b border-linea pb-2"><span>Cámara Solar WiFi</span><b>$850</b></li>
+                        <li class="flex justify-between gap-3"><span>Alarma WiFi + 3G</span><b>$1,499</b></li>
+                    </ul>
+                    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20proteger%20una%20BODEGA%20o%20TERRENO.%20%C2%BFQu%C3%A9%20me%20recomiendas%20y%20cu%C3%A1nto%20sale%20con%20instalaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center border border-linea hover:border-wa hover:bg-wa hover:text-white font-semibold py-3 rounded-full text-sm transition-colors"><i class="fab fa-whatsapp mr-1"></i>Cotizar para bodega</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         3. SECCIÓN DE SOLUCIONES (3 TARJETAS)
+         5. CÁMARA SOLAR (DETALLE + GALERÍA + ROUTER)
     ========================================== -->
-    <section id="soluciones" class="py-20 tech-grid">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-cian-seguridad font-semibold tracking-wide">NUESTRAS SOLUCIONES</span>
-                <h2 class="text-3xl md:text-5xl font-bold mt-2">Tecnología premium adaptada a Mérida</h2>
+    <section id="camara-solar" class="py-20 md:py-28 bg-superficie">
+        <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <!-- Galería -->
+            <div class="reveal min-w-0 lg:sticky lg:top-28">
+                <div class="card p-3">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-superficie">
+                        <button type="button" onclick="openCurrentGalleryImage()" class="block w-full h-full" aria-label="Ampliar imagen">
+                            <img id="solarGalleryMain" src="assets/seguridad360/web/camara-solar-blanca.webp" alt="Cámara solar WiFi con panel solar" class="w-full h-full object-cover">
+                        </button>
+                        <button type="button" onclick="changeGallery(-1)" aria-label="Imagen anterior" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" onclick="changeGallery(1)" aria-label="Imagen siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-right"></i></button>
+                        <span id="solarGalleryCaption" class="absolute left-3 bottom-3 bg-white/90 text-tinta rounded-full px-3 py-1.5 text-xs font-semibold">Cámara solar</span>
+                    </div>
+                    <div id="solarGalleryThumbs" class="flex gap-2 mt-3 overflow-x-auto no-scrollbar"></div>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 xl:grid-cols-5 gap-8">
-                <!-- Tarjeta 1: Cámara Solar -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col reveal">
-                    <div class="h-48 bg-gradient-to-br from-cian-seguridad/20 to-azul-electrico/20 overflow-hidden">
-                        <img src="assets/seguridad360/camara-solar-blanca.png" alt="Camara solar WiFi blanca con panel solar" class="media-cover">
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-2xl font-bold mb-3">Cámara Solar WiFi</h3>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-400">Precio promocional</p>
-                            <p class="text-4xl font-black text-solar">$850 <span class="text-base font-bold text-gray-300">pesos</span></p>
-                            <p class="mt-2 inline-flex items-center gap-2 bg-[#25D366]/15 text-[#25D366] border border-[#25D366]/30 rounded-full px-3 py-1 text-xs font-bold">
-                                <i class="fas fa-gift"></i> Incluye router WiFi gratis
-                            </p>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm">Ideal para exteriores, entradas, patios, negocios, terrenos o bodegas sin depender de cableado eléctrico.</p>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-solar-panel text-solar mr-3"></i>Energía solar + 6 baterías recargables de alta capacidad</li>
-                            <li><i class="fas fa-router text-solar mr-3"></i>Router WiFi incluido gratis</li>
-                            <li><i class="fas fa-shield-halved text-solar mr-3"></i>Cuerpo metálico de uso rudo</li>
-                            <li><i class="fas fa-bell text-solar mr-3"></i>Detección de movimiento y alertas</li>
-                            <li><i class="fas fa-microchip text-solar mr-3"></i>Grabación local en microSD</li>
-                            <li><i class="fas fa-volume-high text-solar mr-3"></i>Audio de doble vía</li>
-                        </ul>
-                        <a href="https://wa.me/529991850841?text=Hola,%20quiero%20esta%20cámara%20solar%20WiFi%20de%20Seguridad%20360%20Mérida.%20¿Me%20das%20información?" target="_blank" class="block text-center bg-cian-seguridad/10 text-cian-seguridad border border-cian-seguridad/30 font-bold py-3 rounded-xl hover:bg-cian-seguridad hover:text-noche transition-all">
-                            Quiero esta cámara
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Video Portero WiFi -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col reveal">
-                    <div class="h-48 bg-white overflow-hidden">
-                        <img src="assets/seguridad360/video-portero-producto.png" alt="Video portero WiFi con timbre y receptor" class="media-cover object-contain p-2">
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-2xl font-bold mb-3">Video Portero WiFi</h3>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-400">Precio</p>
-                            <p class="text-4xl font-black text-cian-seguridad">$500 <span class="text-base font-bold text-gray-300">pesos</span></p>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm">Ve quién toca la puerta desde tu celular y atiende visitas o entregas aunque no estés en casa.</p>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-video text-cian-seguridad mr-3"></i>Cámara Full HD para entrada principal</li>
-                            <li><i class="fas fa-mobile-screen text-cian-seguridad mr-3"></i>Visualización desde el celular</li>
-                            <li><i class="fas fa-bell text-cian-seguridad mr-3"></i>Timbre receptor incluido</li>
-                            <li><i class="fas fa-wifi text-cian-seguridad mr-3"></i>Conexión WiFi</li>
-                            <li><i class="fas fa-moon text-cian-seguridad mr-3"></i>Visión nocturna</li>
-                        </ul>
-                        <a href="https://wa.me/529991850841?text=Hola,%20quiero%20el%20Video%20Portero%20WiFi%20de%20$500%20de%20Seguridad%20360%20M%C3%A9rida.%20%C2%BFMe%20das%20informaci%C3%B3n?" target="_blank" class="block text-center bg-cian-seguridad/10 text-cian-seguridad border border-cian-seguridad/30 font-bold py-3 rounded-xl hover:bg-cian-seguridad hover:text-noche transition-all">
-                            Quiero el video portero
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3: Alarma WiFi -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col reveal">
-                    <div class="h-48 bg-white overflow-hidden">
-                        <img src="assets/seguridad360/alarma-wifi.png" alt="Kit de alarma WiFi con sensores inalambricos" class="media-cover object-contain p-3">
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-2xl font-bold mb-3">Alarma WiFi</h3>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-400">Precios desde</p>
-                            <p class="text-4xl font-black text-azul-electrico">$950 <span class="text-base font-bold text-gray-300">pesos</span></p>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm">Una solución sencilla y efectiva para recibir alertas cuando alguien intenta entrar a tu casa o negocio.</p>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-check text-azul-electrico mr-3"></i>Incluye 5 sensores inalámbricos</li>
-                            <li><i class="fas fa-wifi text-azul-electrico mr-3"></i>Sensores inalámbricos</li>
-                            <li><i class="fas fa-plus text-azul-electrico mr-3"></i>Se pueden agregar más sensores</li>
-                            <li><i class="fas fa-bullhorn text-azul-electrico mr-3"></i>Sirena sonora potente</li>
-                            <li><i class="fas fa-mobile-screen text-azul-electrico mr-3"></i>Alertas directas al celular</li>
-                            <li><i class="fas fa-hand-pointer text-azul-electrico mr-3"></i>Control total desde la app</li>
-                        </ul>
-                        <a href="https://wa.me/529991850841?text=Hola,%20quiero%20la%20Alarma%20WiFi%20de%20Seguridad%20360%20Mérida.%20¿Me%20das%20información?" target="_blank" class="block text-center bg-azul-electrico/10 text-azul-electrico border border-azul-electrico/30 font-bold py-3 rounded-xl hover:bg-azul-electrico hover:text-white transition-all">
-                            Quiero proteger mi casa
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 4: Alarma WiFi + 3G -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col reveal border-solar/30">
-                    <div class="bg-solar text-noche text-center py-2 text-xs font-bold uppercase tracking-wide">Más Completa y Confiable</div>
-                    <div class="h-44 bg-white overflow-hidden">
-                        <img src="assets/seguridad360/alarma-3g-wifi.png" alt="Kit de alarma WiFi 3G GSM con sensores inalambricos" class="media-cover object-contain p-3">
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-2xl font-bold mb-3">Alarma WiFi + 3G</h3>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-400">Precio</p>
-                            <p class="text-4xl font-black text-solar">$1,499 <span class="text-base font-bold text-gray-300">pesos</span></p>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm">La opción más completa para quienes quieren respaldo adicional mediante SIM card si falla el internet.</p>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-check text-solar mr-3"></i>Incluye 5 sensores inalámbricos</li>
-                            <li><i class="fas fa-wifi text-solar mr-3"></i>Funciona con WiFi y SIM Card</li>
-                            <li><i class="fas fa-plus text-solar mr-3"></i>Se pueden agregar más sensores</li>
-                            <li><i class="fas fa-shield text-solar mr-3"></i>Respaldo si se va el internet</li>
-                            <li><i class="fas fa-bullhorn text-solar mr-3"></i>Sirena sonora potente</li>
-                            <li><i class="fas fa-bell text-solar mr-3"></i>Alertas en tiempo real</li>
-                            <li><i class="fas fa-warehouse text-solar mr-3"></i>Ideal para bodegas y propiedades solas</li>
-                        </ul>
-                        <a href="https://wa.me/529991850841?text=Hola,%20quiero%20la%20Alarma%20WiFi%20+%203G%20de%20Seguridad%20360%20Mérida.%20¿Me%20das%20información?" target="_blank" class="block text-center bg-solar/10 text-solar border border-solar/30 font-bold py-3 rounded-xl hover:bg-solar hover:text-noche transition-all">
-                            Quiero la opción más completa
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 5: Alarma para casa o negocio -->
-                <div class="glass-card rounded-2xl overflow-hidden flex flex-col reveal">
-                    <div class="h-48 bg-white overflow-hidden">
-                        <img src="assets/seguridad360/alarma-casa-negocio.png" alt="Sistema de alarma WiFi para hogar y negocio" class="media-cover object-cover">
-                    </div>
-                    <div class="p-8 flex-grow flex flex-col">
-                        <h3 class="text-2xl font-bold mb-3">Alarma Casa o Negocio WiFi</h3>
-                        <div class="mb-4">
-                            <p class="text-sm text-gray-400">Paquete configurable</p>
-                            <p class="text-3xl font-black text-azul-electrico">Cotizar <span class="text-base font-bold text-gray-300">según sensores</span></p>
-                        </div>
-                        <p class="text-gray-400 mb-6 text-sm">Sistema WiFi para proteger puertas, ventanas y movimiento interior en casas, locales u oficinas.</p>
-                        <ul class="space-y-3 text-sm text-gray-300 mb-8 flex-grow">
-                            <li><i class="fas fa-door-closed text-azul-electrico mr-3"></i>Sensores para puerta y ventana</li>
-                            <li><i class="fas fa-person-running text-azul-electrico mr-3"></i>Sensores de movimiento PIR</li>
-                            <li><i class="fas fa-bullhorn text-azul-electrico mr-3"></i>Sirena de alta potencia</li>
-                            <li><i class="fas fa-key text-azul-electrico mr-3"></i>Controles remotos para armado fácil</li>
-                            <li><i class="fas fa-mobile-screen-button text-azul-electrico mr-3"></i>Control desde app</li>
-                        </ul>
-                        <a href="https://wa.me/529991850841?text=Hola,%20quiero%20cotizar%20una%20alarma%20WiFi%20para%20casa%20o%20negocio%20con%20Seguridad%20360%20M%C3%A9rida.%20%C2%BFMe%20das%20informaci%C3%B3n?" target="_blank" class="block text-center bg-azul-electrico/10 text-azul-electrico border border-azul-electrico/30 font-bold py-3 rounded-xl hover:bg-azul-electrico hover:text-white transition-all">
-                            Cotizar alarma WiFi
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================
-         4. SECCIÓN CÁMARA SOLAR DE USO RUDO
-    ========================================== -->
-    <section id="camara-solar" class="py-20 bg-grafito relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-noche-claro z-[-1]"></div>
-        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
             <!-- Texto -->
             <div class="reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Cámara solar metálica, <span class="text-gradient">resistente y lista para exteriores</span></h2>
-                <p class="text-gray-300 mb-8">Olvidate de cableados caros y complicados. Nuestra cámara IP de uso rudo se alimenta del sol y cuenta con baterías de respaldo, grabando 24/7 sin que pagues más en luz.</p>
-                
-                <div class="grid grid-cols-2 gap-6 mb-8">
-                    <div class="flex items-start space-x-3">
-                        <i class="fas fa-solar-panel text-solar text-2xl mt-1"></i>
-                        <div><h4 class="font-bold">Carga Ininterrumpida</h4><p class="text-sm text-gray-400">Panel solar + 6 baterías recargables de alta capacidad.</p></div>
-                    </div>
-                    <div class="flex items-start space-x-3">
-                        <i class="fas fa-panorama text-cian-seguridad text-2xl mt-1"></i>
-                        <div><h4 class="font-bold">Vista Panorámica</h4><p class="text-sm text-gray-400">Domo con movimiento total.</p></div>
-                    </div>
-                    <div class="flex items-start space-x-3">
-                        <i class="fas fa-micro-sd text-azul-electrico text-2xl mt-1"></i>
-                        <div><h4 class="font-bold">Grabación Local</h4><p class="text-sm text-gray-400">Sigue grabando sin internet.</p></div>
-                    </div>
-                    <div class="flex items-start space-x-3">
-                        <i class="fas fa-comments text-solar text-2xl mt-1"></i>
-                        <div><h4 class="font-bold">Doble Vía</h4><p class="text-sm text-gray-400">Micrófono y bocina integrados.</p></div>
-                    </div>
+                <span class="eyebrow mb-4">Cámara solar de uso rudo</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-5">Vigila todo el día, sin cables ni recibo de luz</h2>
+                <p class="text-suave text-lg mb-8">Se carga con el sol y guarda energía en 6 baterías para la noche y los días nublados. Aunque se vaya el internet, sigue grabando en la memoria microSD.</p>
+
+                <div class="grid sm:grid-cols-2 gap-4 mb-10">
+                    <div class="card p-5"><i class="fas fa-solar-panel text-solar text-xl mb-3"></i><h3 class="font-bold text-tinta">Energía solar</h3><p class="text-sm text-suave mt-1">Panel + 6 baterías recargables.</p></div>
+                    <div class="card p-5"><i class="fas fa-arrows-rotate text-marca text-xl mb-3"></i><h3 class="font-bold text-tinta">Vista panorámica</h3><p class="text-sm text-suave mt-1">Domo con movimiento total desde la app.</p></div>
+                    <div class="card p-5"><i class="fas fa-sd-card text-marca text-xl mb-3"></i><h3 class="font-bold text-tinta">Grabación local</h3><p class="text-sm text-suave mt-1">Sigue grabando sin internet.</p></div>
+                    <div class="card p-5"><i class="fas fa-comments text-marca text-xl mb-3"></i><h3 class="font-bold text-tinta">Habla y escucha</h3><p class="text-sm text-suave mt-1">Micrófono y bocina integrados.</p></div>
                 </div>
 
-                <div class="bg-cian-seguridad/10 border-l-4 border-cian-seguridad p-4 rounded-r-xl">
-                    <p class="text-white font-semibold"><i class="fas fa-shield-halved mr-2"></i>Importante:</p>
-                    <p class="text-gray-300 text-sm mt-1">Aunque se vaya el internet, la cámara puede seguir grabando directamente en la memoria microSD. Tus videos están siempre a salvo.</p>
-                </div>
-            </div>
-
-            <!-- Carrusel de producto -->
-            <div class="reveal relative">
-                <div class="glass-card rounded-3xl p-4 md:p-5">
-                    <div class="gallery-main rounded-2xl overflow-hidden relative">
-                        <button type="button" onclick="openCurrentGalleryImage()" class="block w-full h-full focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                            <img id="solarGalleryMain" src="assets/seguridad360/camara-solar-blanca.png" alt="Camara solar WiFi blanca con panel solar" class="media-cover">
+                <!-- Router incluido -->
+                <div class="card p-6 md:p-7 mb-8">
+                    <div class="flex items-start gap-5">
+                        <button type="button" onclick="openLightbox('assets/seguridad360/web/router-wifi.webp', 'Router WiFi incluido gratis con la cámara solar')" class="w-24 h-24 shrink-0 rounded-2xl bg-superficie overflow-hidden">
+                            <img loading="lazy" decoding="async" src="assets/seguridad360/web/router-wifi.webp" alt="Router WiFi incluido" class="w-full h-full object-contain p-2">
                         </button>
-                        <button type="button" onclick="changeGallery(-1)" aria-label="Imagen anterior" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-noche/80 border border-white/15 hover:bg-cian-seguridad hover:text-noche transition-all focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button type="button" onclick="changeGallery(1)" aria-label="Imagen siguiente" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-noche/80 border border-white/15 hover:bg-cian-seguridad hover:text-noche transition-all focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute left-4 bottom-4 right-4 flex items-center justify-between gap-3">
-                            <span id="solarGalleryCaption" class="bg-noche/85 border border-white/10 rounded-full px-4 py-2 text-xs md:text-sm font-bold">Camara solar blanca</span>
-                            <span class="bg-cian-seguridad text-noche rounded-full px-4 py-2 text-xs font-black uppercase">Clic para ampliar</span>
+                        <div>
+                            <p class="text-xs font-bold uppercase tracking-wider text-wa-osc mb-1">Incluido gratis</p>
+                            <h3 class="font-bold text-lg text-tinta mb-1">Router WiFi dedicado</h3>
+                            <p class="text-sm text-suave">Conexión más estable y sin problemas de compatibilidad con módems como Telmex/Infinitum.</p>
                         </div>
                     </div>
-                    <div id="solarGalleryThumbs" class="grid grid-cols-5 gap-2 mt-4">
-                        <button type="button" class="gallery-thumb active rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(0)"><img src="assets/seguridad360/camara-solar-blanca.png" alt="Camara solar WiFi blanca con panel solar" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(1)"><img src="assets/seguridad360/solar-caracteristicas.jpg" alt="Partes de la camara solar WiFi" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(2)"><img src="assets/seguridad360/solar-funciones.jpg" alt="Funciones de la camara solar WiFi" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(3)"><img src="assets/seguridad360/solar-ip67.jpg" alt="Proteccion IP67 de camara solar" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(4)"><img src="assets/seguridad360/solar-movimiento.jpg" alt="Deteccion de movimiento e infrarrojo" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(5)"><img src="assets/seguridad360/solar-energia.jpg" alt="Energia solar recargable" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(6)"><img src="assets/seguridad360/solar-extension.jpg" alt="Instalacion extendida con cable de 5 metros" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(7)"><img src="assets/seguridad360/solar-encendido.jpg" alt="Boton de encendido y baterias" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(8)"><img src="assets/seguridad360/solar-escenarios.jpg" alt="Escenarios de uso de camara solar" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(9)"><img src="assets/seguridad360/solar-instalacion-gratis.jpg" alt="Camara solar con instalacion gratuita y router WiFi" class="h-16 md:h-20 w-full object-cover"></button>
-                        <button type="button" class="gallery-thumb rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-cian-seguridad" onclick="setGalleryImage(10)"><img src="assets/seguridad360/solar-producto.jpg" alt="Producto camara solar WiFi" class="h-16 md:h-20 w-full object-cover"></button>
+                    <div class="mt-5 flex items-center justify-between text-xs sm:text-sm font-semibold text-tinta bg-superficie rounded-2xl px-4 py-3">
+                        <span class="flex items-center gap-2"><i class="fas fa-globe text-suave"></i>Tu módem</span>
+                        <i class="fas fa-arrow-right text-marca"></i>
+                        <span class="flex items-center gap-2"><i class="fas fa-wifi text-marca"></i>Router gratis</span>
+                        <i class="fas fa-arrow-right text-marca"></i>
+                        <span class="flex items-center gap-2"><i class="fas fa-video text-suave"></i>Cámara</span>
                     </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20la%20C%C3%A1mara%20Solar%20WiFi%20de%20%24850%20con%20router%20gratis.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="bg-wa hover:bg-wa-osc text-white font-semibold py-4 px-7 rounded-full text-center"><i class="fab fa-whatsapp mr-2"></i>Pedir cámara solar · $850</a>
+                    <span class="text-sm text-suave">Instalación y configuración desde $350</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         5. SECCIÓN ROUTER WIFI (MANEJO DE OBJECIONES)
+         6. ALARMAS: ¿CUÁL TE CONVIENE?
     ========================================== -->
-    <section id="router-wifi" class="py-20 bg-noche">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="glass-card p-8 md:p-12 rounded-3xl reveal">
-                <div class="grid lg:grid-cols-[1fr_280px] gap-8 items-center mb-10">
-                    <div class="text-center lg:text-left">
-                        <i class="fas fa-router text-5xl text-cian-seguridad mb-4"></i>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">La cámara solar incluye router WiFi gratis</h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto lg:mx-0">
-                            Por $850 pesos, la cámara IP WiFi solar incluye router WiFi gratis para lograr una conexión más estable y evitar problemas comunes de compatibilidad con algunos módems.
-                        </p>
-                    </div>
-                    <button type="button" onclick="openLightbox('assets/seguridad360/router-wifi.png', 'Router WiFi incluido gratis con la camara solar')" class="bg-white rounded-2xl overflow-hidden border border-cian-seguridad/30 focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                        <img src="assets/seguridad360/router-wifi.png" alt="Router WiFi incluido gratis con la camara solar" class="w-full h-56 object-contain p-3">
-                    </button>
-                </div>
-
-                <!-- Diagrama de Flujo -->
-                <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-                    <div class="bg-noche-claro p-6 rounded-2xl border border-white/10 w-full md:w-auto">
-                        <i class="fas fa-modem text-3xl text-gray-400 mb-2"></i>
-                        <p class="text-sm font-semibold">Módem de Internet</p>
-                        <p class="text-xs text-gray-500">(Ej. Telmex/Infinitum)</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-cian-seguridad rotate-90 md:rotate-0"></i>
-                    <div class="bg-noche-claro p-6 rounded-2xl border border-cian-seguridad/50 w-full md:w-auto shadow-lg shadow-cian-seguridad/10">
-                        <i class="fas fa-wifi text-3xl text-cian-seguridad mb-2"></i>
-                        <p class="text-sm font-semibold">Router WiFi Incluido</p>
-                        <p class="text-xs text-[#25D366] font-bold">Gratis con la cámara</p>
-                    </div>
-                    <i class="fas fa-arrow-right text-cian-seguridad rotate-90 md:rotate-0"></i>
-                    <div class="bg-noche-claro p-6 rounded-2xl border border-white/10 w-full md:w-auto">
-                        <i class="fas fa-video text-3xl text-white mb-2"></i>
-                        <p class="text-sm font-semibold">Cámara Solar WiFi</p>
-                        <p class="text-xs text-gray-500">Funciona perfectamente</p>
-                    </div>
-                </div>
-
-                <div class="mt-10 grid md:grid-cols-2 gap-4 text-sm">
-                    <div class="flex items-center space-x-2"><i class="fas fa-check text-cian-seguridad"></i><span>Menos problemas de conexión</span></div>
-                    <div class="flex items-center space-x-2"><i class="fas fa-check text-cian-seguridad"></i><span>Router WiFi gratis incluido en la cámara de $850</span></div>
-                    <div class="flex items-center space-x-2"><i class="fas fa-check text-cian-seguridad"></i><span>Mejor estabilidad de video</span></div>
-                    <div class="flex items-center space-x-2"><i class="fas fa-check text-cian-seguridad"></i><span>Asesoría completa incluida</span></div>
-                </div>
-
-                <div class="text-center mt-10">
-                    <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Quiero%20que%20me%20expliquen%20lo%20del%20router%20dedicado%20por%20WhatsApp." target="_blank" class="inline-block bg-white text-noche font-bold py-3 px-8 rounded-xl hover:bg-gray-200 transition-all">
-                        Quiero que me expliquen por WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================
-         6. SECCIÓN DE ALARMAS (COMPARATIVA)
-    ========================================== -->
-    <section id="alarmas" class="py-20 bg-noche-claro">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Alarmas inteligentes para alertas tempranas</h2>
-                <p class="text-gray-400">Recibe notificaciones antes de que sea demasiado tarde.</p>
+    <section id="alarmas" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="eyebrow mb-4">Alarmas inteligentes</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">¿Cuál alarma te conviene?</h2>
+                <p class="text-suave text-lg">Todas suenan y te avisan al celular. La diferencia es el respaldo y el tamaño del lugar.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto bg-grafito rounded-3xl overflow-hidden border border-white/10 reveal">
-                <div class="grid md:grid-cols-2">
-                    <!-- Alarma WiFi -->
-                    <div class="p-8 border-b md:border-b-0 md:border-r border-white/10">
-                        <button type="button" onclick="openLightbox('assets/seguridad360/alarma-wifi.png', 'Alarma WiFi desde $950 pesos')" class="w-full h-48 bg-white rounded-2xl overflow-hidden mb-6 focus:outline-none focus:ring-2 focus:ring-azul-electrico">
-                            <img src="assets/seguridad360/alarma-wifi.png" alt="Alarma WiFi con sensores inalambricos" class="w-full h-full object-contain p-3">
-                        </button>
-                        <h3 class="text-2xl font-bold text-azul-electrico mb-2">Alarma WiFi</h3>
-                        <p class="text-3xl font-black text-azul-electrico mb-2">Desde $950 <span class="text-base text-gray-300">pesos</span></p>
-                        <p class="text-gray-400 text-sm mb-6">Para casas y negocios con internet estable.</p>
-                        <ul class="space-y-3 text-gray-300 text-sm">
-                            <li><i class="fas fa-check mr-2 text-azul-electrico"></i> Incluye 5 sensores inalámbricos</li>
-                            <li><i class="fas fa-check mr-2 text-azul-electrico"></i> Se pueden agregar más sensores</li>
-                            <li><i class="fas fa-check mr-2 text-azul-electrico"></i> Sirena sonora</li>
-                            <li><i class="fas fa-check mr-2 text-azul-electrico"></i> Alertas en la app</li>
-                            <li><i class="fas fa-check mr-2 text-azul-electrico"></i> Opción práctica y económica</li>
+            <!-- PENDIENTE: agregar la Alarma WiFi WG1T como opción de entrada cuando se confirmen precio, fotos y contenido del kit -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <article class="card overflow-hidden flex flex-col reveal">
+                    <button type="button" onclick="openLightbox('assets/seguridad360/web/alarma-wifi.webp', 'Alarma WiFi desde $950')" class="aspect-[4/3] bg-white border-b border-linea"><img loading="lazy" decoding="async" src="assets/seguridad360/web/alarma-wifi.webp" alt="Alarma WiFi con sensores inalámbricos" class="w-full h-full object-contain p-6"></button>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Alarma WiFi</h3>
+                        <p class="text-suave text-sm mt-1 mb-4">Para casas y locales con internet estable.</p>
+                        <p class="mb-6"><span class="text-suave text-sm">desde </span><span class="font-display text-3xl font-extrabold text-tinta">$950</span></p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>5 sensores inalámbricos</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sirena sonora</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Alertas y control en la app</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Admite más sensores</li>
                         </ul>
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20la%20Alarma%20WiFi%20desde%20%24950.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center bg-wa hover:bg-wa-osc text-white font-semibold py-3 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i>Quiero esta alarma</a>
                     </div>
-                    <!-- Alarma 3G -->
-                    <div class="p-8 bg-solar/5">
-                        <button type="button" onclick="openLightbox('assets/seguridad360/alarma-3g-wifi.png', 'Alarma WiFi + 3G por $1,499 pesos')" class="w-full h-48 bg-white rounded-2xl overflow-hidden mb-6 focus:outline-none focus:ring-2 focus:ring-solar">
-                            <img src="assets/seguridad360/alarma-3g-wifi.png" alt="Alarma WiFi 3G GSM con sensores inalambricos" class="w-full h-full object-contain p-3">
-                        </button>
-                        <span class="inline-block bg-solar text-noche text-xs font-bold px-2 py-1 rounded mb-2">RECOMENDADA</span>
-                        <h3 class="text-2xl font-bold text-solar mb-2">Alarma WiFi + 3G</h3>
-                        <p class="text-3xl font-black text-solar mb-2">$1,499 <span class="text-base text-gray-300">pesos</span></p>
-                        <p class="text-gray-400 text-sm mb-6">Para quienes quieren mayor respaldo.</p>
-                        <ul class="space-y-3 text-gray-300 text-sm">
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Incluye 5 sensores inalámbricos</li>
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Compatible con SIM card</li>
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Se pueden agregar más sensores</li>
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Ideal si falla el internet</li>
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Sensores inalámbricos y sirena</li>
-                            <li><i class="fas fa-check mr-2 text-solar"></i> Para bodegas y propiedades solas</li>
+                </article>
+
+                <article class="card overflow-hidden flex flex-col reveal ring-2 ring-marca relative">
+                    <span class="absolute top-4 right-4 z-10 bg-marca text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Recomendada</span>
+                    <button type="button" onclick="openLightbox('assets/seguridad360/web/alarma-3g-wifi.webp', 'Alarma WiFi + 3G por $1,499')" class="aspect-[4/3] bg-white border-b border-linea"><img loading="lazy" decoding="async" src="assets/seguridad360/web/alarma-3g-wifi.webp" alt="Alarma WiFi + 3G con sensores inalámbricos" class="w-full h-full object-contain p-6"></button>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Alarma WiFi + 3G</h3>
+                        <p class="text-suave text-sm mt-1 mb-4">Sigue avisando con SIM card si se va el internet.</p>
+                        <p class="mb-6"><span class="font-display text-3xl font-extrabold text-tinta">$1,499</span></p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>5 sensores inalámbricos</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Funciona con WiFi y SIM card</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sirena y alertas en tiempo real</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Ideal para bodegas y casas solas</li>
                         </ul>
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20la%20Alarma%20WiFi%20%2B%203G%20de%20%241%2C499.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center bg-wa hover:bg-wa-osc text-white font-semibold py-3 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i>Quiero esta alarma</a>
                     </div>
-                </div>
+                </article>
+
+                <article class="card overflow-hidden flex flex-col reveal">
+                    <button type="button" onclick="openLightbox('assets/seguridad360/web/alarma-casa-negocio.webp', 'Alarma WiFi a medida para casa o negocio')" class="aspect-[4/3] bg-white border-b border-linea overflow-hidden"><img loading="lazy" decoding="async" src="assets/seguridad360/web/alarma-casa-negocio.webp" alt="Sistema de alarma WiFi para casa o negocio" class="w-full h-full object-cover"></button>
+                    <div class="p-7 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-tinta">Alarma a medida</h3>
+                        <p class="text-suave text-sm mt-1 mb-4">Para lugares grandes o con muchas entradas.</p>
+                        <p class="mb-6"><span class="font-display text-3xl font-extrabold text-tinta">Cotizar</span> <span class="text-suave text-sm">según sensores</span></p>
+                        <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sensores de puerta y ventana</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sensores de movimiento PIR</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sirena de alta potencia</li>
+                            <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Controles remotos</li>
+                        </ul>
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20cotizar%20una%20alarma%20a%20medida%20para%20mi%20casa%20o%20negocio.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="text-center border border-linea hover:bg-superficie font-semibold py-3 rounded-full text-sm"><i class="fab fa-whatsapp mr-1"></i>Cotizar a medida</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Comparativa -->
+            <div class="mt-12 card overflow-x-auto reveal">
+                <table class="w-full text-[15px] text-left min-w-[560px]">
+                    <thead class="bg-superficie text-tinta">
+                        <tr>
+                            <th class="py-4 px-6 font-semibold text-suave text-sm">Comparativa</th>
+                            <th class="py-4 px-4 font-bold">WiFi</th>
+                            <th class="py-4 px-4 font-bold text-marca">WiFi + 3G</th>
+                            <th class="py-4 px-4 font-bold">A medida</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-linea">
+                        <tr><td class="py-4 px-6 text-suave">Precio</td><td class="px-4 font-semibold">Desde $950</td><td class="px-4 font-semibold">$1,499</td><td class="px-4 font-semibold">Cotizar</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Sensores incluidos</td><td class="px-4">5</td><td class="px-4">5</td><td class="px-4">Los que necesites</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Sirena + alerta al celular</td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Avisa aunque no haya internet</td><td class="px-4"><i class="fas fa-minus text-suave/60"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i> <span class="text-sm text-suave">con SIM</span></td><td class="px-4 text-sm text-suave">Según equipo</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Ideal para</td><td class="px-4">Casa o local</td><td class="px-4">Bodega, casa sola</td><td class="px-4">Lugares grandes</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Instalación y configuración</td><td class="px-4" colspan="3">Desde $500</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         7. SECCIÓN DE CONFIANZA Y FORMULARIO CORTO
+         7. INSTALACIÓN Y GARANTÍA
     ========================================== -->
-    <section id="confianza" class="py-20 bg-grafito">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Compra con confianza en Mérida</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">No solo vendemos productos, vendemos tranquilidad. Atención local y humana.</p>
+    <section id="instalacion" class="py-20 md:py-28 bg-tinta text-white relative overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-[36rem] h-[36rem] rounded-full bg-marca/30 blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-5 relative">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="eyebrow eyebrow-claro mb-4">Instalación profesional</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">No te preocupes por instalarla. Lo hacemos por ti.</h2>
+                <p class="text-white/70 text-lg">Vamos a tu casa o negocio en Mérida, instalamos el equipo, lo configuramos en tu celular y te enseñamos a usarlo.</p>
             </div>
-
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <!-- Columna Izquierda: Confianza -->
-                <div class="reveal">
-                    <ul class="space-y-6">
-                        <li class="flex items-start space-x-4">
-                            <div class="bg-cian-seguridad/10 p-3 rounded-xl"><i class="fas fa-truck-fast text-cian-seguridad text-xl"></i></div>
-                            <div><h4 class="font-bold text-lg">Entrega local en Mérida</h4><p class="text-gray-400 text-sm">A domicilio o en punto acordado. Sin esperar semanas de envío.</p></div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="bg-cian-seguridad/10 p-3 rounded-xl"><i class="fas fa-headset text-cian-seguridad text-xl"></i></div>
-                            <div><h4 class="font-bold text-lg">Asesoría antes de comprar</h4><p class="text-gray-400 text-sm">Te ayudamos a elegir la opción ideal para tu casa o negocio sin compromiso.</p></div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="bg-cian-seguridad/10 p-3 rounded-xl"><i class="fas fa-video text-cian-seguridad text-xl"></i></div>
-                            <div><h4 class="font-bold text-lg">Demostraciones en video</h4><p class="text-gray-400 text-sm">Te mostramos cómo funciona todo antes de que tomes una decisión.</p></div>
-                        </li>
-                        <li class="flex items-start space-x-4">
-                            <div class="bg-cian-seguridad/10 p-3 rounded-xl"><i class="fas fa-screwdriver-wrench text-cian-seguridad text-xl"></i></div>
-                            <div><h4 class="font-bold text-lg">Configuración garantizada</h4><p class="text-gray-400 text-sm">Te explicamos cómo conectarla, incluyendo el router dedicado si es necesario.</p></div>
-                        </li>
-                    </ul>
+            <div class="grid md:grid-cols-2 gap-6 mb-10">
+                <div class="rounded-3xl bg-white/[0.06] border border-white/10 p-7 md:p-8 reveal">
+                    <span class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl mb-5"><i class="fas fa-video"></i></span>
+                    <h3 class="text-xl font-bold mb-1">Cámaras WiFi</h3>
+                    <p class="text-white/65 text-sm mb-5">Instalación, conexión a tu WiFi y configuración de la app en tu celular.</p>
+                    <p><span class="text-white/60 text-sm">desde </span><span class="font-display text-4xl font-extrabold">$350</span></p>
                 </div>
-
-                <!-- Columna Derecha: Formulario WhatsApp -->
-                <div class="glass-card p-8 rounded-3xl reveal">
-                    <h3 class="text-2xl font-bold mb-2">¿No sabes cuál elegir?</h3>
-                    <p class="text-gray-400 text-sm mb-6">Llena este formulario y te contactamos por WhatsApp con la mejor recomendación.</p>
-                    
-                    <form id="waForm" onsubmit="sendWhatsApp(event)" class="space-y-4">
-                        <div>
-                            <label class="text-sm text-gray-300">Nombre</label>
-                            <input type="text" id="name" required class="w-full mt-1 bg-noche border border-white/10 rounded-lg p-3 text-white focus:border-cian-seguridad focus:outline-none" placeholder="Tu nombre">
-                        </div>
-                        <div>
-                            <label class="text-sm text-gray-300">Zona de Mérida</label>
-                            <input type="text" id="zone" required class="w-full mt-1 bg-noche border border-white/10 rounded-lg p-3 text-white focus:border-cian-seguridad focus:outline-none" placeholder="Ej. Centro, Norte, Caucel...">
-                        </div>
-                        <div>
-                            <label class="text-sm text-gray-300">¿Qué quieres proteger?</label>
-                            <select id="protect" class="w-full mt-1 bg-noche border border-white/10 rounded-lg p-3 text-white focus:border-cian-seguridad focus:outline-none">
-                                <option>Casa</option>
-                                <option>Negocio / Local</option>
-                                <option>Bodega / Terreno</option>
-                                <option>Otro</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-sm text-gray-300">Producto de interés</label>
-                            <select id="product" class="w-full mt-1 bg-noche border border-white/10 rounded-lg p-3 text-white focus:border-cian-seguridad focus:outline-none">
-                                <option>Cámara solar</option>
-                                <option>Video Portero WiFi</option>
-                                <option>Alarma WiFi</option>
-                                <option>Alarma WiFi + 3G</option>
-                                <option>Alarma Casa o Negocio WiFi</option>
-                                <option>Quiero recomendación</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#1da851] transition-all flex items-center justify-center space-x-2 mt-4">
-                            <i class="fab fa-whatsapp text-2xl"></i> <span>Enviar por WhatsApp</span>
-                        </button>
-                    </form>
+                <div class="rounded-3xl bg-white/[0.06] border border-white/10 p-7 md:p-8 reveal">
+                    <span class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl mb-5"><i class="fas fa-bell"></i></span>
+                    <h3 class="text-xl font-bold mb-1">Alarmas WiFi</h3>
+                    <p class="text-white/65 text-sm mb-5">Colocación de sensores y sirena, enlace con la app y prueba completa.</p>
+                    <p><span class="text-white/60 text-sm">desde </span><span class="font-display text-4xl font-extrabold">$500</span></p>
                 </div>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-4 reveal">
+                <div class="flex items-center gap-3 rounded-2xl bg-white/[0.04] border border-white/10 p-4"><i class="fas fa-hand-holding-dollar text-wa text-xl"></i><span class="text-sm"><b class="block">Pago contra entrega</b><span class="text-white/60">Pagas al recibir</span></span></div>
+                <div class="flex items-center gap-3 rounded-2xl bg-white/[0.04] border border-white/10 p-4"><i class="fas fa-shield-halved text-[#8FB4FF] text-xl"></i><span class="text-sm"><b class="block">3 meses de garantía</b><span class="text-white/60">Respaldo local en Mérida</span></span></div>
+                <div class="flex items-center gap-3 rounded-2xl bg-white/[0.04] border border-white/10 p-4"><i class="fas fa-mobile-screen text-solar text-xl"></i><span class="text-sm"><b class="block">Te enseñamos a usarla</b><span class="text-white/60">Configurada en tu celular</span></span></div>
+            </div>
+            <div class="mt-10 reveal">
+                <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Quiero%20cotizar%20equipo%20con%20instalaci%C3%B3n.%20%C2%BFMe%20das%20informaci%C3%B3n%3F" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-wa hover:bg-wa-osc text-white font-semibold py-4 px-7 rounded-full"><i class="fab fa-whatsapp text-xl"></i>Cotizar con instalación</a>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         9. SECCIÓN DE VIDEOS DEMOSTRATIVOS
+         8. CÓMO COMPRAR
     ========================================== -->
-    <section id="videos" class="py-20 bg-noche">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Mira la tecnología en acción</h2>
-                <p class="text-gray-400">Videos demostrativos reales del funcionamiento.</p>
+    <section id="como-comprar" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="eyebrow mb-4">Cómo comprar</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">Comprar es fácil y sin riesgo</h2>
+                <p class="text-suave text-lg">Todo por WhatsApp, con atención local. No pagas nada por adelantado.</p>
+            </div>
+            <ol class="grid md:grid-cols-3 gap-6">
+                <li class="card p-7 reveal">
+                    <span class="font-display text-5xl font-extrabold text-marca/20">01</span>
+                    <h3 class="text-lg font-bold text-tinta mt-3 mb-1">Escríbenos por WhatsApp</h3>
+                    <p class="text-suave text-[15px]">Cuéntanos qué quieres proteger y en qué zona de Mérida estás.</p>
+                </li>
+                <li class="card p-7 reveal">
+                    <span class="font-display text-5xl font-extrabold text-marca/20">02</span>
+                    <h3 class="text-lg font-bold text-tinta mt-3 mb-1">Te mostramos cómo funciona</h3>
+                    <p class="text-suave text-[15px]">Te recomendamos la mejor opción y te enviamos video del equipo funcionando.</p>
+                </li>
+                <li class="card p-7 reveal">
+                    <span class="font-display text-5xl font-extrabold text-marca/20">03</span>
+                    <h3 class="text-lg font-bold text-tinta mt-3 mb-1">Recibe, revisa y paga</h3>
+                    <p class="text-suave text-[15px]">Te lo entregamos en Mérida y pagas al recibirlo. Si quieres, lo instalamos ese mismo día.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- =========================================
+         9. EN ACCIÓN (VIDEO + FOTOS)
+    ========================================== -->
+    <section id="videos" class="py-20 md:py-28 bg-superficie">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="max-w-2xl mb-12 reveal">
+                <span class="eyebrow mb-4">En acción</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">Mira cómo funciona</h2>
+                <p class="text-suave text-lg">Pide por WhatsApp un video del equipo funcionando antes de comprar.</p>
             </div>
             <div class="grid lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl overflow-hidden reveal lg:col-span-2">
-                    <video class="w-full aspect-video object-cover bg-black" src="assets/seguridad360/intrusion-video.mp4" poster="assets/seguridad360/intrusion-ladrones.png" controls playsinline></video>
-                    <div class="p-5">
-                        <h4 class="font-bold text-xl">Cuando alguien entra, cada segundo cuenta</h4>
-                        <p class="text-gray-400 text-sm mt-2">Este tipo de escena es la razon para instalar alertas, grabacion local y monitoreo desde el celular antes de que ocurra algo peor.</p>
+                <div class="card overflow-hidden lg:col-span-2 lg:row-span-2 reveal">
+                    <video preload="none" class="w-full aspect-video object-cover bg-black" src="assets/seguridad360/intrusion-video.mp4" poster="assets/seguridad360/web/intrusion-ladrones.webp" controls playsinline></video>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg text-tinta">Cuando alguien entra, cada segundo cuenta</h3>
+                        <p class="text-suave text-sm mt-1">Por eso conviene tener alertas, grabación y monitoreo desde el celular antes de que pase algo.</p>
                     </div>
                 </div>
-                <button type="button" onclick="openLightbox('assets/seguridad360/solar-funciones.jpg', 'Funciones de camara solar WiFi')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/solar-funciones.jpg" alt="Funciones de camara solar WiFi" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Funciones clave de la camara solar</h4></div>
+                <button type="button" onclick="openLightbox('assets/seguridad360/web/video-portero-app.webp', 'Video portero WiFi desde el celular')" class="card overflow-hidden text-left group reveal">
+                    <div class="aspect-[16/10] overflow-hidden"><img loading="lazy" decoding="async" src="assets/seguridad360/web/video-portero-app.webp" alt="Video portero WiFi en el celular" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                    <div class="p-5"><h3 class="font-bold text-tinta">Video portero en tu celular</h3></div>
                 </button>
-                <button type="button" onclick="openLightbox('assets/seguridad360/solar-movimiento.jpg', 'Deteccion de movimiento')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/solar-movimiento.jpg" alt="Deteccion de movimiento de la camara solar" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Deteccion de movimiento y alertas</h4></div>
-                </button>
-                <button type="button" onclick="openLightbox('assets/seguridad360/solar-escenarios.jpg', 'Escenarios de instalacion')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/solar-escenarios.jpg" alt="Escenarios de instalacion de camara solar" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Casa, negocio, bodega o terreno</h4></div>
-                </button>
-                <button type="button" onclick="openLightbox('assets/seguridad360/solar-extension.jpg', 'Instalacion extendida')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/solar-extension.jpg" alt="Instalacion extendida con cable de 5 metros" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Panel solar con instalacion flexible</h4></div>
-                </button>
-                <button type="button" onclick="openLightbox('assets/seguridad360/video-portero-app.png', 'Video portero WiFi desde el celular')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/video-portero-app.png" alt="Video portero WiFi conectado al celular" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Video portero WiFi con vista en celular</h4></div>
-                </button>
-                <button type="button" onclick="openLightbox('assets/seguridad360/alarma-casa-negocio.png', 'Alarma WiFi para casa o negocio')" class="glass-card rounded-2xl overflow-hidden reveal group text-left focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
-                    <div class="h-56 bg-grafito overflow-hidden">
-                        <img src="assets/seguridad360/alarma-casa-negocio.png" alt="Sistema de alarma WiFi para casa o negocio" class="media-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-4"><h4 class="font-bold">Alarma WiFi para casa o negocio</h4></div>
+                <button type="button" onclick="openLightbox('assets/seguridad360/web/solar-escenarios.webp', 'Casa, negocio, bodega o terreno')" class="card overflow-hidden text-left group reveal">
+                    <div class="aspect-[16/10] overflow-hidden"><img loading="lazy" decoding="async" src="assets/seguridad360/web/solar-escenarios.webp" alt="Escenarios de uso de la cámara solar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+                    <div class="p-5"><h3 class="font-bold text-tinta">Casa, negocio, bodega o terreno</h3></div>
                 </button>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         10. SECCIÓN DE CASOS DE USO
+         10. PREGUNTAS FRECUENTES
     ========================================== -->
-    <section id="casos-uso" class="py-20 bg-noche-claro tech-grid">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Soluciones para cada espacio</h2>
-                <p class="text-gray-400">Sea lo que sea que quieras cuidar, tenemos una opción para ti.</p>
+    <section id="faq" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-[1fr_1.4fr] gap-12">
+            <div class="reveal">
+                <span class="eyebrow mb-4">Preguntas frecuentes</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">Resolvemos tus dudas</h2>
+                <p class="text-suave text-lg mb-6">¿Tienes otra pregunta? Escríbenos y te respondemos por WhatsApp.</p>
+                <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Tengo%20una%20pregunta%3A" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-linea hover:bg-superficie font-semibold py-3 px-6 rounded-full text-sm"><i class="fab fa-whatsapp text-wa-osc text-lg"></i>Hacer una pregunta</a>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-house text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Casa Familiar</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-store text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Negocio</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-warehouse text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Bodega</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-shop text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Local Comercial</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-map-location-dot text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Terreno</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-door-open text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Entrada Principal</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-tree text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Patio</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-screwdriver-wrench text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Taller</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-utensils text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Restaurante</h4></div>
-                <div class="glass-card p-6 rounded-xl text-center reveal hover:bg-cian-seguridad/10 transition-all"><i class="fas fa-briefcase text-3xl text-cian-seguridad mb-3"></i><h4 class="font-bold text-sm">Oficina</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================
-         11. SECCIÓN DE PREGUNTAS FRECUENTES
-    ========================================== -->
-    <section id="faq" class="py-20 bg-noche">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Preguntas Frecuentes</h2>
-                <p class="text-gray-400">Resolvemos tus dudas antes de comprar.</p>
-            </div>
-
-            <div class="space-y-4">
-                <!-- FAQ 1 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿La cámara funciona sin luz eléctrica?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        Sí, cuenta con panel solar que la carga durante el día, y 6 baterías recargables de alta capacidad que mantienen la energía durante la noche o días nublados.
-                    </div>
-                </div>
-                <!-- FAQ 2 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Qué pasa si se va el internet?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        La cámara puede seguir grabando localmente en la memoria microSD, aunque las alertas remotas a tu celular dependan de la conexión a internet.
-                    </div>
-                </div>
-                <!-- FAQ 3 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Necesita instalación complicada?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        No. Se brinda asesoría completa para usarla correctamente. Se puede recomendar una configuración con router WiFi dedicado para evitar problemas técnicos.
-                    </div>
-                </div>
-                <!-- FAQ 4 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Funciona con módem Telmex o Infinitum?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        En algunos casos puede requerirse un router WiFi dedicado para mayor estabilidad. Esta solución ayuda a evitar problemas comunes de compatibilidad de algunos módems.
-                    </div>
-                </div>
-                <!-- FAQ 5 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿La alarma suena si alguien entra?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        Sí, al detectar la apertura o movimiento, activa la sirena sonora potente y simultáneamente envía una alerta a tu celular.
-                    </div>
-                </div>
-                <!-- FAQ 6 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Cuál alarma me conviene más?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        La WiFi es ideal para casas o negocios con internet estable. La WiFi + 3G es mejor si quieres un respaldo extra con SIM card por si se va la luz o el internet.
-                    </div>
-                </div>
-                <!-- FAQ 7 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Entregan en Mérida?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        Sí, se puede entregar en Mérida a domicilio o en un punto acordado. La atención principal es local.
-                    </div>
-                </div>
-                <!-- FAQ 8 -->
-                <div class="glass-card rounded-xl overflow-hidden reveal">
-                    <button class="w-full flex justify-between items-center p-6 text-left" onclick="toggleFAQ(this)">
-                        <span class="font-bold text-lg">¿Puedo cotizar por WhatsApp?</span>
-                        <i class="fas fa-chevron-down text-cian-seguridad transition-transform"></i>
-                    </button>
-                    <div class="hidden p-6 pt-0 text-gray-400 text-sm">
-                        Sí, toda la asesoría y cotizaciones se hacen por WhatsApp sin compromiso. Estamos para ayudarte.
-                    </div>
-                </div>
+            <div class="divide-y divide-linea border-y border-linea reveal">
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Puedo pagar al recibir?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">Sí. Manejamos pago contra entrega en Mérida: revisas tu equipo y pagas al recibirlo.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Ustedes lo instalan? ¿Cuánto cuesta?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">Sí. La instalación y configuración de cámaras WiFi es desde $350 y la de alarmas WiFi desde $500. El precio final depende del lugar y de cuántos equipos sean; te lo confirmamos por WhatsApp.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Tiene garantía?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">Sí, 3 meses de garantía. Si tienes cualquier problema, nos escribes por WhatsApp y lo resolvemos aquí en Mérida.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿La cámara solar funciona sin luz eléctrica?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">Sí. El panel solar la carga durante el día y sus 6 baterías recargables la mantienen funcionando de noche o en días nublados.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Qué pasa si se va el internet?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">La cámara sigue grabando en la memoria microSD; las alertas al celular necesitan internet. Si quieres que la alarma siga avisando sin internet, la opción es la Alarma WiFi + 3G con SIM card.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Funciona con módem Telmex o Infinitum?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">Sí. Para evitar problemas de compatibilidad, la cámara solar incluye un router WiFi dedicado gratis que se conecta a tu módem.</p>
+                </details>
+                <details class="group py-5">
+                    <summary class="flex justify-between items-center gap-4 font-semibold text-tinta text-[17px]">¿Cuál alarma me conviene?<i class="fas fa-plus faq-icon text-marca transition-transform"></i></summary>
+                    <p class="text-suave mt-3">La WiFi es ideal para casas o locales con internet estable. La WiFi + 3G es mejor para bodegas o casas que se quedan solas, porque sigue avisando con SIM card si falla el internet.</p>
+                </details>
             </div>
         </div>
     </section>
 
     <!-- =========================================
-         12. CTA FINAL
+         11. CTA FINAL + FORMULARIO
     ========================================== -->
-    <section id="cta-final" class="py-24 bg-gradient-to-br from-azul-electrico to-cian-seguridad relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full tech-grid opacity-20"></div>
-        <div class="container mx-auto px-6 text-center relative z-10 reveal">
-            <h2 class="text-3xl md:text-5xl font-black text-white mb-4">Empieza a proteger tu casa o negocio hoy</h2>
-            <p class="text-white/90 text-lg max-w-2xl mx-auto mb-8">
-                Cuéntanos qué quieres proteger y te recomendamos la mejor opción: cámara solar, alarma WiFi o alarma WiFi + 3G.
-            </p>
-            <a href="https://wa.me/529991850841?text=Hola,%20vi%20la%20página%20de%20Seguridad%20360%20Mérida.%20Me%20interesa%20cotizar%20una%20cámara%20solar%20WiFi%20/%20alarma%20para%20mi%20casa%20o%20negocio.%20¿Me%20puedes%20dar%20información?" 
-               target="_blank" 
-               class="inline-flex items-center bg-noche text-white font-bold py-5 px-12 rounded-2xl hover:bg-grafito transition-all shadow-2xl text-xl space-x-3">
-                <i class="fab fa-whatsapp text-3xl"></i> <span>Cotizar por WhatsApp</span>
-            </a>
-            <p class="text-white/80 text-sm mt-6">
-                Respuesta rápida · Atención en Mérida · Soluciones para casa y negocio
-            </p>
-        </div>
-    </section>
-
-    <!-- =========================================
-         13. FOOTER
-    ========================================== -->
-    <footer class="bg-noche pt-16 pb-8 border-t border-white/10">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
+    <section id="cotizar" class="py-20 md:py-28 bg-superficie">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="rounded-[2rem] hero-bg text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center overflow-hidden reveal">
                 <div>
-                    <a href="#hero" class="brand-lockup mb-5 animated-action" aria-label="Seguridad 360 Mérida">
-                        <img src="assets/seguridad360/logo360.png" alt="Logo Seguridad 360" class="brand-logo-mark">
-                        <span class="relative z-10">
-                            <span class="block text-2xl font-black tracking-wide text-white leading-none">Seguridad 360</span>
-                            <span class="block text-xs font-semibold text-cian-seguridad uppercase tracking-[0.22em] mt-1">Mérida</span>
-                        </span>
-                    </a>
-                    <p class="text-gray-400 text-sm">Protección inteligente para tu casa o negocio en Yucatán. Cámaras solares, alarmas WiFi y respaldo total.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Nuestros Productos</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a href="#camara-solar" class="hover:text-cian-seguridad">Cámaras solares WiFi</a></li>
-                        <li><a href="#soluciones" class="hover:text-cian-seguridad">Video Portero WiFi</a></li>
-                        <li><a href="#alarmas" class="hover:text-cian-seguridad">Alarmas WiFi</a></li>
-                        <li><a href="#alarmas" class="hover:text-cian-seguridad">Alarmas WiFi + 3G</a></li>
-                        <li><a href="#soluciones" class="hover:text-cian-seguridad">Alarma Casa o Negocio WiFi</a></li>
+                    <span class="eyebrow eyebrow-claro mb-4">Cotiza en minutos</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold mb-5">Empieza a proteger tu casa o negocio hoy</h2>
+                    <p class="text-white/75 text-lg mb-8">Llena estos datos y te llega la cotización por WhatsApp, con instalación si la necesitas.</p>
+                    <ul class="space-y-3 text-white/85">
+                        <li class="flex items-center gap-3"><i class="fas fa-circle-check text-wa"></i>Pago contra entrega</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-circle-check text-wa"></i>3 meses de garantía</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-circle-check text-wa"></i>Instalación desde $350</li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Contacto Local</h4>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><i class="fas fa-location-dot mr-2"></i> Mérida, Yucatán</li>
-                        <li><a href="https://wa.me/529991850841" target="_blank" class="hover:text-[#25D366]"><i class="fab fa-whatsapp mr-2"></i> WhatsApp: 999 185 0841</a></li>
-                        <!-- PLACEHOLDER: Links a redes sociales -->
-                        <li><a href="#" class="hover:text-cian-seguridad"><i class="fab fa-facebook mr-2"></i> Facebook</a></li>
-                        <li><a href="#" class="hover:text-cian-seguridad"><i class="fas fa-store mr-2"></i> Marketplace</a></li>
-                    </ul>
-                </div>
+                <form id="waForm" onsubmit="sendWhatsApp(event)" class="bg-white text-texto rounded-3xl p-6 md:p-8 space-y-4 shadow-alta">
+                    <div>
+                        <label for="name" class="text-sm font-semibold text-tinta">Nombre</label>
+                        <input type="text" id="name" required autocomplete="given-name" class="w-full mt-1.5 bg-superficie border border-linea rounded-xl p-3.5 focus:border-marca focus:outline-none focus:ring-2 focus:ring-marca/20" placeholder="Tu nombre">
+                    </div>
+                    <div>
+                        <label for="zone" class="text-sm font-semibold text-tinta">Zona de Mérida</label>
+                        <input type="text" id="zone" required class="w-full mt-1.5 bg-superficie border border-linea rounded-xl p-3.5 focus:border-marca focus:outline-none focus:ring-2 focus:ring-marca/20" placeholder="Ej. Centro, Norte, Caucel...">
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="protect" class="text-sm font-semibold text-tinta">¿Qué proteges?</label>
+                            <select id="protect" class="w-full mt-1.5 bg-superficie border border-linea rounded-xl p-3.5 focus:border-marca focus:outline-none">
+                                <option>Casa</option><option>Negocio / Local</option><option>Bodega / Terreno</option><option>Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="product" class="text-sm font-semibold text-tinta">Producto</label>
+                            <select id="product" class="w-full mt-1.5 bg-superficie border border-linea rounded-xl p-3.5 focus:border-marca focus:outline-none">
+                                <option>Quiero recomendación</option><option>Cámara solar</option><option>Video Portero WiFi</option><option>Alarma WiFi</option><option>Alarma WiFi + 3G</option><option>Alarma a medida</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="flex items-center gap-3 text-sm text-tinta">
+                        <input type="checkbox" id="install" class="w-5 h-5 accent-[#1D5BD8]" checked> Quiero que me lo instalen
+                    </label>
+                    <button type="submit" class="w-full bg-wa hover:bg-wa-osc text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-colors">
+                        <i class="fab fa-whatsapp text-xl"></i> Enviar por WhatsApp
+                    </button>
+                </form>
             </div>
-            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+        </div>
+    </section>
+
+    <!-- =========================================
+         12. PIE DE PÁGINA
+    ========================================== -->
+    <footer class="bg-white border-t border-linea">
+        <div class="max-w-7xl mx-auto px-5 py-14 grid md:grid-cols-[1.4fr_1fr_1fr] gap-10">
+            <div>
+                <a href="#hero" class="flex items-center gap-2.5 mb-4">
+                    <img loading="lazy" src="assets/seguridad360/web/logo360.webp" alt="Logo Seguridad 360" width="48" height="48" class="w-12 h-12 object-contain">
+                    <span class="font-display font-extrabold text-xl text-tinta leading-none">Seguridad 360<span class="block text-[10px] font-bold text-marca uppercase tracking-[0.24em] mt-1">Mérida</span></span>
+                </a>
+                <p class="text-suave text-sm max-w-sm">Cámaras solares, video porteros y alarmas WiFi para casa y negocio en Mérida, Yucatán. Con instalación, pago contra entrega y garantía.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-tinta mb-4">Productos</h4>
+                <ul class="space-y-2.5 text-suave text-sm">
+                    <li><a href="#camara-solar" class="hover:text-tinta">Cámara solar WiFi</a></li>
+                    <li><a href="#productos" class="hover:text-tinta">Video portero WiFi</a></li>
+                    <li><a href="#alarmas" class="hover:text-tinta">Alarmas WiFi y WiFi + 3G</a></li>
+                    <li><a href="#instalacion" class="hover:text-tinta">Instalación y configuración</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-tinta mb-4">Contacto</h4>
+                <ul class="space-y-2.5 text-suave text-sm">
+                    <li><i class="fas fa-location-dot w-5"></i>Mérida, Yucatán</li>
+                    <li><a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida." target="_blank" rel="noopener" class="hover:text-tinta"><i class="fab fa-whatsapp w-5"></i>999 185 0841</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-linea">
+            <div class="max-w-7xl mx-auto px-5 py-6 text-xs text-suave flex flex-col sm:flex-row justify-between gap-2">
                 <p>© 2026 Seguridad 360 Mérida. Todos los derechos reservados.</p>
-                <p class="mt-2 text-xs">Sitio desarrollado por <a href="#" class="text-cian-seguridad hover:underline">Xinfin Lab</a>.</p>
+                <p>Sitio desarrollado por Xinfin Lab.</p>
             </div>
         </div>
     </footer>
 
     <div id="imageLightbox" class="lightbox fixed inset-0 z-[80] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Imagen ampliada" onclick="closeLightbox(event)">
         <div class="relative">
-            <button type="button" onclick="closeLightbox()" aria-label="Cerrar imagen" class="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white hover:text-noche transition-all focus:outline-none focus:ring-2 focus:ring-cian-seguridad">
+            <button type="button" onclick="closeLightbox()" aria-label="Cerrar imagen" class="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white hover:text-tinta transition-colors">
                 <i class="fas fa-xmark"></i>
             </button>
-            <img id="lightboxImage" src="" alt="" class="rounded-2xl shadow-2xl border border-white/10 bg-noche">
+            <img id="lightboxImage" src="" alt="" class="rounded-2xl shadow-2xl bg-white">
             <p id="lightboxCaption" class="mt-3 text-center text-sm text-gray-200"></p>
         </div>
     </div>
 
-    <!-- =========================================
-         JAVASCRIPT (Animaciones y Funciones)
-    ========================================== -->
     <script>
-        // 1. Scroll Reveal
-        const reveals = document.querySelectorAll('.reveal');
+        // 1. Aparición al hacer scroll
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -983,102 +760,94 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        reveals.forEach((reveal, index) => {
-            reveal.style.setProperty('--reveal-delay', `${Math.min((index % 6) * 80, 400)}ms`);
-            revealObserver.observe(reveal);
-        });
+        // 2. Menú móvil
+        function toggleMenu(force) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('menuBtn');
+            const open = typeof force === 'boolean' ? force : menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !open);
+            btn.setAttribute('aria-expanded', String(open));
+            btn.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+        }
 
-        document.querySelectorAll('a, button').forEach((element) => {
-            element.classList.add('animated-action');
-        });
-
+        // 3. Galería de la cámara solar
         const solarGalleryImages = [
-            { src: 'assets/seguridad360/camara-solar-blanca.png', caption: 'Camara solar blanca', alt: 'Camara solar WiFi blanca con panel solar' },
-            { src: 'assets/seguridad360/solar-caracteristicas.jpg', caption: 'Partes y componentes', alt: 'Caracteristicas de camara solar WiFi' },
-            { src: 'assets/seguridad360/solar-funciones.jpg', caption: 'Funciones inteligentes', alt: 'Funciones de camara solar WiFi' },
-            { src: 'assets/seguridad360/solar-ip67.jpg', caption: 'Proteccion IP67 para exterior', alt: 'Proteccion IP67 de camara solar' },
-            { src: 'assets/seguridad360/solar-movimiento.jpg', caption: 'Infrarrojo y deteccion de movimiento', alt: 'Deteccion de movimiento de camara solar' },
-            { src: 'assets/seguridad360/solar-energia.jpg', caption: 'Energia solar recargable', alt: 'Energia solar recargable' },
-            { src: 'assets/seguridad360/solar-extension.jpg', caption: 'Instalacion extendida de 5 metros', alt: 'Instalacion extendida con cable de 5 metros' },
-            { src: 'assets/seguridad360/solar-encendido.jpg', caption: 'Baterias y boton de encendido', alt: 'Baterias y boton de encendido' },
-            { src: 'assets/seguridad360/solar-escenarios.jpg', caption: 'Uso en diferentes escenarios', alt: 'Escenarios para camara solar' },
-            { src: 'assets/seguridad360/solar-instalacion-gratis.jpg', caption: 'Instalacion y router WiFi', alt: 'Camara solar con instalacion y router WiFi' },
-            { src: 'assets/seguridad360/solar-producto.jpg', caption: 'Vista del producto', alt: 'Camara solar WiFi con panel solar' }
+            { src: 'assets/seguridad360/web/camara-solar-blanca.webp', caption: 'Cámara solar', alt: 'Cámara solar WiFi con panel solar' },
+            { src: 'assets/seguridad360/web/solar-producto.webp', caption: 'Vista del producto', alt: 'Cámara solar WiFi' },
+            { src: 'assets/seguridad360/web/solar-caracteristicas.webp', caption: 'Partes y componentes', alt: 'Características de la cámara solar WiFi' },
+            { src: 'assets/seguridad360/web/solar-funciones.webp', caption: 'Funciones inteligentes', alt: 'Funciones de la cámara solar WiFi' },
+            { src: 'assets/seguridad360/web/solar-ip67.webp', caption: 'Protección IP67 para exterior', alt: 'Protección IP67' },
+            { src: 'assets/seguridad360/web/solar-movimiento.webp', caption: 'Detección de movimiento', alt: 'Detección de movimiento e infrarrojo' },
+            { src: 'assets/seguridad360/web/solar-energia.webp', caption: 'Energía solar recargable', alt: 'Energía solar recargable' },
+            { src: 'assets/seguridad360/web/solar-extension.webp', caption: 'Panel con cable de 5 metros', alt: 'Instalación extendida con cable de 5 metros' },
+            { src: 'assets/seguridad360/web/solar-encendido.webp', caption: 'Baterías y encendido', alt: 'Baterías y botón de encendido' },
+            { src: 'assets/seguridad360/web/solar-escenarios.webp', caption: 'Dónde usarla', alt: 'Escenarios de uso de la cámara solar' }
         ];
         let solarGalleryIndex = 0;
+
+        const thumbs = document.getElementById('solarGalleryThumbs');
+        solarGalleryImages.forEach((img, i) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'gallery-thumb shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden' + (i === 0 ? ' active' : '');
+            b.setAttribute('aria-label', img.caption);
+            b.onclick = () => setGalleryImage(i);
+            b.innerHTML = `<img loading="lazy" src="${img.src}" alt="" class="w-full h-full object-cover">`;
+            thumbs.appendChild(b);
+        });
 
         function setGalleryImage(index) {
             solarGalleryIndex = (index + solarGalleryImages.length) % solarGalleryImages.length;
             const image = solarGalleryImages[solarGalleryIndex];
             const main = document.getElementById('solarGalleryMain');
-            const caption = document.getElementById('solarGalleryCaption');
-            const thumbs = document.querySelectorAll('#solarGalleryThumbs .gallery-thumb');
-
-            if (main) {
-                main.src = image.src;
-                main.alt = image.alt;
-            }
-            if (caption) caption.textContent = image.caption;
-            thumbs.forEach((thumb, thumbIndex) => thumb.classList.toggle('active', thumbIndex === solarGalleryIndex));
+            main.src = image.src;
+            main.alt = image.alt;
+            document.getElementById('solarGalleryCaption').textContent = image.caption;
+            thumbs.querySelectorAll('.gallery-thumb').forEach((t, i) => t.classList.toggle('active', i === solarGalleryIndex));
+            thumbs.children[solarGalleryIndex].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
         }
-
-        function changeGallery(direction) {
-            setGalleryImage(solarGalleryIndex + direction);
-        }
-
+        function changeGallery(direction) { setGalleryImage(solarGalleryIndex + direction); }
         function openCurrentGalleryImage() {
             const image = solarGalleryImages[solarGalleryIndex];
             openLightbox(image.src, image.caption, image.alt);
         }
 
+        // 4. Visor de imágenes
         function openLightbox(src, caption = '', alt = '') {
-            const lightbox = document.getElementById('imageLightbox');
             const image = document.getElementById('lightboxImage');
-            const text = document.getElementById('lightboxCaption');
             image.src = src;
             image.alt = alt || caption || 'Imagen ampliada';
-            text.textContent = caption;
-            lightbox.classList.add('open');
+            document.getElementById('lightboxCaption').textContent = caption;
+            document.getElementById('imageLightbox').classList.add('open');
             document.body.classList.add('overflow-hidden');
         }
-
         function closeLightbox(event) {
             if (event && event.target !== event.currentTarget) return;
-            const lightbox = document.getElementById('imageLightbox');
-            lightbox.classList.remove('open');
+            document.getElementById('imageLightbox').classList.remove('open');
             document.body.classList.remove('overflow-hidden');
         }
-
         document.addEventListener('keydown', (event) => {
+            const lightboxOpen = document.getElementById('imageLightbox').classList.contains('open');
             if (event.key === 'Escape') closeLightbox();
-            if (event.key === 'ArrowRight') changeGallery(1);
-            if (event.key === 'ArrowLeft') changeGallery(-1);
+            if (!lightboxOpen) return;
+            if (event.key === 'ArrowRight') { changeGallery(1); openCurrentGalleryImage(); }
+            if (event.key === 'ArrowLeft') { changeGallery(-1); openCurrentGalleryImage(); }
         });
 
-        // 2. Toggle FAQ
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const icon = button.querySelector('i');
-            answer.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-
-        // 3. Formulario a WhatsApp
+        // 5. Formulario a WhatsApp
         function sendWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const zone = document.getElementById('zone').value;
             const protect = document.getElementById('protect').value;
             const product = document.getElementById('product').value;
-            
-            const message = `Hola, vi la página de Seguridad 360 Mérida. Me interesa cotizar.\n\n*Nombre:* ${name}\n*Zona:* ${zone}\n*Quiero proteger:* ${protect}\n*Producto de interés:* ${product}\n\n¿Me puedes dar información?`;
-            const encodedMessage = encodeURIComponent(message);
-            
-            window.open(`https://wa.me/529991850841?text=${encodedMessage}`, '_blank');
+            const install = document.getElementById('install').checked ? 'Sí' : 'No';
+            const message = `Hola, vi la página de Seguridad 360 Mérida. Me interesa cotizar.\n\n*Nombre:* ${name}\n*Zona:* ${zone}\n*Quiero proteger:* ${protect}\n*Producto:* ${product}\n*Con instalación:* ${install}\n\n¿Me puedes dar información?`;
+            window.open(`https://wa.me/529991850841?text=${encodeURIComponent(message)}`, '_blank');
         }
     </script>
 </body>
 </html>
-
