@@ -306,7 +306,7 @@
                         <div class="flex items-baseline gap-2 mb-1">
                             <span class="text-suave text-sm">desde</span><span class="font-display text-4xl font-extrabold text-tinta">$950</span><span class="text-suave text-sm">MXN</span>
                         </div>
-                        <p class="text-sm text-suave mb-6">3 opciones, con o sin respaldo 3G</p>
+                        <p class="text-sm text-suave mb-6">4 opciones · nueva WG1T con Alexa</p>
                         <ul class="space-y-2.5 text-[15px] text-texto/80 mb-8 flex-grow">
                             <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sensores de puerta, ventana y movimiento</li>
                             <li class="flex gap-3"><i class="fas fa-check text-marca mt-1"></i>Sirena potente</li>
@@ -374,11 +374,11 @@
             <div class="reveal min-w-0 lg:sticky lg:top-28">
                 <div class="card p-3">
                     <div class="relative aspect-square rounded-2xl overflow-hidden bg-superficie">
-                        <button type="button" onclick="openCurrentGalleryImage()" class="block w-full h-full" aria-label="Ampliar imagen">
+                        <button type="button" onclick="galleries.solar.openCurrent()" class="block w-full h-full" aria-label="Ampliar imagen">
                             <img id="solarGalleryMain" src="assets/seguridad360/web/camara-solar-blanca.webp" alt="Cámara solar WiFi con panel solar" class="w-full h-full object-cover">
                         </button>
-                        <button type="button" onclick="changeGallery(-1)" aria-label="Imagen anterior" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-left"></i></button>
-                        <button type="button" onclick="changeGallery(1)" aria-label="Imagen siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-right"></i></button>
+                        <button type="button" onclick="galleries.solar.change(-1)" aria-label="Imagen anterior" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" onclick="galleries.solar.change(1)" aria-label="Imagen siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-right"></i></button>
                         <span id="solarGalleryCaption" class="absolute left-3 bottom-3 bg-white/90 text-tinta rounded-full px-3 py-1.5 text-xs font-semibold">Cámara solar</span>
                     </div>
                     <div id="solarGalleryThumbs" class="flex gap-2 mt-3 overflow-x-auto no-scrollbar"></div>
@@ -435,10 +435,50 @@
             <div class="max-w-2xl mb-12 reveal">
                 <span class="eyebrow mb-4">Alarmas inteligentes</span>
                 <h2 class="text-3xl md:text-5xl font-extrabold text-tinta mb-4">¿Cuál alarma te conviene?</h2>
-                <p class="text-suave text-lg">Todas suenan y te avisan al celular. La diferencia es el respaldo y el tamaño del lugar.</p>
+                <p class="text-suave text-lg">Todas suenan y te avisan al celular. La diferencia es el respaldo, las funciones inteligentes y el tamaño del lugar.</p>
             </div>
 
-            <!-- PENDIENTE: agregar la Alarma WiFi WG1T como opción de entrada cuando se confirmen precio, fotos y contenido del kit -->
+            <!-- Alarma WG1T destacada -->
+            <!-- PENDIENTE: poner el precio real de la WG1T en los 3 lugares marcados con "precio-wg1t" -->
+            <article id="alarma-wg1t" class="card overflow-hidden grid lg:grid-cols-2 mb-10 reveal">
+                <div class="p-3 bg-superficie min-w-0">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-white">
+                        <button type="button" onclick="galleries.wg1t.openCurrent()" class="block w-full h-full" aria-label="Ampliar imagen">
+                            <img id="wg1tGalleryMain" src="assets/seguridad360/web/wg1t-principal.webp" alt="Alarma WiFi inteligente WG1T" class="w-full h-full object-cover">
+                        </button>
+                        <button type="button" onclick="galleries.wg1t.change(-1)" aria-label="Imagen anterior" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" onclick="galleries.wg1t.change(1)" aria-label="Imagen siguiente" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 shadow-suave text-tinta hover:bg-white"><i class="fas fa-chevron-right"></i></button>
+                        <span id="wg1tGalleryCaption" class="absolute left-3 bottom-3 bg-white/90 text-tinta rounded-full px-3 py-1.5 text-xs font-semibold">Alarma WiFi WG1T</span>
+                    </div>
+                    <div id="wg1tGalleryThumbs" class="flex gap-2 mt-3 overflow-x-auto no-scrollbar"></div>
+                </div>
+                <div class="p-7 md:p-10 flex flex-col">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="bg-solar text-tinta text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Nueva</span>
+                        <span class="text-xs font-semibold text-suave">Modelo WG1T · Tuya Smart Life</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-tinta mb-2">Alarma WiFi Inteligente con panel luminoso</h3>
+                    <p class="text-suave mb-5">Compacta, moderna y fácil de usar. Suena, se ilumina y te avisa al celular. Se arma con el control remoto, desde la app o con tu voz.</p>
+                    <p class="mb-6"><span class="font-display text-3xl font-extrabold text-tinta" data-precio-wg1t>Pregunta el precio</span></p>
+                    <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 text-[15px] text-texto/80 mb-7">
+                        <li class="flex gap-3"><i class="fas fa-bullhorn text-marca mt-1 w-4 text-center"></i>Sirena interna de 88 dB</li>
+                        <li class="flex gap-3"><i class="fas fa-mobile-screen text-marca mt-1 w-4 text-center"></i>Alertas push al celular</li>
+                        <li class="flex gap-3"><i class="fas fa-volume-xmark text-marca mt-1 w-4 text-center"></i>Modo sonoro o silencioso</li>
+                        <li class="flex gap-3"><i class="fas fa-battery-three-quarters text-marca mt-1 w-4 text-center"></i>Batería de respaldo 3 h</li>
+                        <li class="flex gap-3"><i class="fas fa-microphone text-marca mt-1 w-4 text-center"></i>Funciona con Alexa y Google</li>
+                        <li class="flex gap-3"><i class="fas fa-shield-halved text-marca mt-1 w-4 text-center"></i>Antisabotaje (botón tamper)</li>
+                        <li class="flex gap-3"><i class="fas fa-plus text-marca mt-1 w-4 text-center"></i>Hasta 24 sensores y 50 controles</li>
+                        <li class="flex gap-3"><i class="fas fa-ruler-combined text-marca mt-1 w-4 text-center"></i>Pequeña: 9 × 9 × 2.5 cm</li>
+                    </ul>
+                    <p class="text-sm text-suave bg-superficie rounded-2xl px-4 py-3 mb-7"><b class="text-tinta">Incluye:</b> panel de alarma, sensor de movimiento, sensores magnéticos de puerta y control remoto. Instalación y configuración desde $500.</p>
+                    <div class="mt-auto flex flex-col sm:flex-row gap-3">
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20Me%20interesa%20la%20nueva%20Alarma%20WiFi%20WG1T%20con%20panel%20luminoso.%20%C2%BFCu%C3%A1nto%20cuesta%20y%20qu%C3%A9%20incluye%3F" target="_blank" rel="noopener" class="flex-1 text-center bg-wa hover:bg-wa-osc text-white font-semibold py-3.5 rounded-full"><i class="fab fa-whatsapp mr-1"></i>Quiero la WG1T</a>
+                        <a href="https://wa.me/529991850841?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Seguridad%20360%20M%C3%A9rida.%20%C2%BFMe%20pueden%20mandar%20un%20video%20de%20la%20Alarma%20WiFi%20WG1T%20funcionando%3F" target="_blank" rel="noopener" class="flex-1 text-center border border-linea hover:bg-superficie font-semibold py-3.5 rounded-full text-sm">Pedir video de demostración</a>
+                    </div>
+                </div>
+            </article>
+
+            <h3 class="text-lg font-bold text-tinta mb-5 reveal">Más opciones de alarma</h3>
             <div class="grid md:grid-cols-3 gap-6">
                 <article class="card overflow-hidden flex flex-col reveal">
                     <button type="button" onclick="openLightbox('assets/seguridad360/web/alarma-wifi.webp', 'Alarma WiFi desde $950')" class="aspect-[4/3] bg-white border-b border-linea"><img loading="lazy" decoding="async" src="assets/seguridad360/web/alarma-wifi.webp" alt="Alarma WiFi con sensores inalámbricos" class="w-full h-full object-contain p-6"></button>
@@ -492,22 +532,23 @@
 
             <!-- Comparativa -->
             <div class="mt-12 card overflow-x-auto reveal">
-                <table class="w-full text-[15px] text-left min-w-[560px]">
+                <table class="w-full text-[15px] text-left min-w-[680px]">
                     <thead class="bg-superficie text-tinta">
                         <tr>
                             <th class="py-4 px-6 font-semibold text-suave text-sm">Comparativa</th>
+                            <th class="py-4 px-4 font-bold">WG1T <span class="text-[10px] font-bold uppercase bg-solar text-tinta px-1.5 py-0.5 rounded ml-1">Nueva</span></th>
                             <th class="py-4 px-4 font-bold">WiFi</th>
                             <th class="py-4 px-4 font-bold text-marca">WiFi + 3G</th>
                             <th class="py-4 px-4 font-bold">A medida</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-linea">
-                        <tr><td class="py-4 px-6 text-suave">Precio</td><td class="px-4 font-semibold">Desde $950</td><td class="px-4 font-semibold">$1,499</td><td class="px-4 font-semibold">Cotizar</td></tr>
-                        <tr><td class="py-4 px-6 text-suave">Sensores incluidos</td><td class="px-4">5</td><td class="px-4">5</td><td class="px-4">Los que necesites</td></tr>
-                        <tr><td class="py-4 px-6 text-suave">Sirena + alerta al celular</td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td></tr>
-                        <tr><td class="py-4 px-6 text-suave">Avisa aunque no haya internet</td><td class="px-4"><i class="fas fa-minus text-suave/60"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i> <span class="text-sm text-suave">con SIM</span></td><td class="px-4 text-sm text-suave">Según equipo</td></tr>
-                        <tr><td class="py-4 px-6 text-suave">Ideal para</td><td class="px-4">Casa o local</td><td class="px-4">Bodega, casa sola</td><td class="px-4">Lugares grandes</td></tr>
-                        <tr><td class="py-4 px-6 text-suave">Instalación y configuración</td><td class="px-4" colspan="3">Desde $500</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Precio</td><td class="px-4 font-semibold" data-precio-wg1t>Preguntar</td><td class="px-4 font-semibold">Desde $950</td><td class="px-4 font-semibold">$1,499</td><td class="px-4 font-semibold">Cotizar</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Sensores incluidos</td><td class="px-4">Movimiento + puerta</td><td class="px-4">5</td><td class="px-4">5</td><td class="px-4">Los que necesites</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Sirena + alerta al celular</td><td class="px-4"><i class="fas fa-check text-wa-osc"></i> <span class="text-sm text-suave">88 dB</span></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i></td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Avisa aunque no haya internet</td><td class="px-4"><i class="fas fa-minus text-suave/60"></i></td><td class="px-4"><i class="fas fa-minus text-suave/60"></i></td><td class="px-4"><i class="fas fa-check text-wa-osc"></i> <span class="text-sm text-suave">con SIM</span></td><td class="px-4 text-sm text-suave">Según equipo</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Ideal para</td><td class="px-4">Casa o departamento</td><td class="px-4">Casa o local</td><td class="px-4">Bodega, casa sola</td><td class="px-4">Lugares grandes</td></tr>
+                        <tr><td class="py-4 px-6 text-suave">Instalación y configuración</td><td class="px-4" colspan="4">Desde $500</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -689,7 +730,7 @@
                         <div>
                             <label for="product" class="text-sm font-semibold text-tinta">Producto</label>
                             <select id="product" class="w-full mt-1.5 bg-superficie border border-linea rounded-xl p-3.5 focus:border-marca focus:outline-none">
-                                <option>Quiero recomendación</option><option>Cámara solar</option><option>Video Portero WiFi</option><option>Alarma WiFi</option><option>Alarma WiFi + 3G</option><option>Alarma a medida</option>
+                                <option>Quiero recomendación</option><option>Cámara solar</option><option>Video Portero WiFi</option><option>Alarma WiFi WG1T (nueva)</option><option>Alarma WiFi</option><option>Alarma WiFi + 3G</option><option>Alarma a medida</option>
                             </select>
                         </div>
                     </div>
@@ -721,6 +762,7 @@
                 <ul class="space-y-2.5 text-suave text-sm">
                     <li><a href="#camara-solar" class="hover:text-tinta">Cámara solar WiFi</a></li>
                     <li><a href="#productos" class="hover:text-tinta">Video portero WiFi</a></li>
+                    <li><a href="#alarma-wg1t" class="hover:text-tinta">Alarma WiFi WG1T (nueva)</a></li>
                     <li><a href="#alarmas" class="hover:text-tinta">Alarmas WiFi y WiFi + 3G</a></li>
                     <li><a href="#instalacion" class="hover:text-tinta">Instalación y configuración</a></li>
                 </ul>
@@ -773,47 +815,66 @@
             btn.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
         }
 
-        // 3. Galería de la cámara solar
-        const solarGalleryImages = [
-            { src: 'assets/seguridad360/web/camara-solar-blanca.webp', caption: 'Cámara solar', alt: 'Cámara solar WiFi con panel solar' },
-            { src: 'assets/seguridad360/web/solar-producto.webp', caption: 'Vista del producto', alt: 'Cámara solar WiFi' },
-            { src: 'assets/seguridad360/web/solar-caracteristicas.webp', caption: 'Partes y componentes', alt: 'Características de la cámara solar WiFi' },
-            { src: 'assets/seguridad360/web/solar-funciones.webp', caption: 'Funciones inteligentes', alt: 'Funciones de la cámara solar WiFi' },
-            { src: 'assets/seguridad360/web/solar-ip67.webp', caption: 'Protección IP67 para exterior', alt: 'Protección IP67' },
-            { src: 'assets/seguridad360/web/solar-movimiento.webp', caption: 'Detección de movimiento', alt: 'Detección de movimiento e infrarrojo' },
-            { src: 'assets/seguridad360/web/solar-energia.webp', caption: 'Energía solar recargable', alt: 'Energía solar recargable' },
-            { src: 'assets/seguridad360/web/solar-extension.webp', caption: 'Panel con cable de 5 metros', alt: 'Instalación extendida con cable de 5 metros' },
-            { src: 'assets/seguridad360/web/solar-encendido.webp', caption: 'Baterías y encendido', alt: 'Baterías y botón de encendido' },
-            { src: 'assets/seguridad360/web/solar-escenarios.webp', caption: 'Dónde usarla', alt: 'Escenarios de uso de la cámara solar' }
-        ];
-        let solarGalleryIndex = 0;
-
-        const thumbs = document.getElementById('solarGalleryThumbs');
-        solarGalleryImages.forEach((img, i) => {
-            const b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'gallery-thumb shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden' + (i === 0 ? ' active' : '');
-            b.setAttribute('aria-label', img.caption);
-            b.onclick = () => setGalleryImage(i);
-            b.innerHTML = `<img loading="lazy" src="${img.src}" alt="" class="w-full h-full object-cover">`;
-            thumbs.appendChild(b);
-        });
-
-        function setGalleryImage(index) {
-            solarGalleryIndex = (index + solarGalleryImages.length) % solarGalleryImages.length;
-            const image = solarGalleryImages[solarGalleryIndex];
-            const main = document.getElementById('solarGalleryMain');
-            main.src = image.src;
-            main.alt = image.alt;
-            document.getElementById('solarGalleryCaption').textContent = image.caption;
-            thumbs.querySelectorAll('.gallery-thumb').forEach((t, i) => t.classList.toggle('active', i === solarGalleryIndex));
-            thumbs.children[solarGalleryIndex].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+        // 3. Galerías de producto
+        const galleries = {};
+        let activeGallery = null;
+        function makeGallery(key, images) {
+            const main = document.getElementById(key + 'GalleryMain');
+            const caption = document.getElementById(key + 'GalleryCaption');
+            const thumbs = document.getElementById(key + 'GalleryThumbs');
+            let index = 0;
+            images.forEach((img, i) => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'gallery-thumb shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden' + (i === 0 ? ' active' : '');
+                b.setAttribute('aria-label', img.caption);
+                b.onclick = () => set(i);
+                b.innerHTML = `<img loading="lazy" src="${img.src}" alt="" class="w-full h-full object-cover">`;
+                thumbs.appendChild(b);
+            });
+            function set(i) {
+                index = (i + images.length) % images.length;
+                main.src = images[index].src;
+                main.alt = images[index].alt;
+                caption.textContent = images[index].caption;
+                [...thumbs.children].forEach((t, n) => t.classList.toggle('active', n === index));
+                thumbs.children[index].scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+            }
+            const g = {
+                change: (d) => set(index + d),
+                openCurrent: () => { activeGallery = g; openLightbox(images[index].src, images[index].caption, images[index].alt); }
+            };
+            galleries[key] = g;
         }
-        function changeGallery(direction) { setGalleryImage(solarGalleryIndex + direction); }
-        function openCurrentGalleryImage() {
-            const image = solarGalleryImages[solarGalleryIndex];
-            openLightbox(image.src, image.caption, image.alt);
-        }
+
+        const W = 'assets/seguridad360/web/';
+        makeGallery('solar', [
+            { src: W + 'camara-solar-blanca.webp', caption: 'Cámara solar', alt: 'Cámara solar WiFi con panel solar' },
+            { src: W + 'solar-producto.webp', caption: 'Vista del producto', alt: 'Cámara solar WiFi' },
+            { src: W + 'solar-caracteristicas.webp', caption: 'Partes y componentes', alt: 'Características de la cámara solar WiFi' },
+            { src: W + 'solar-funciones.webp', caption: 'Funciones inteligentes', alt: 'Funciones de la cámara solar WiFi' },
+            { src: W + 'solar-ip67.webp', caption: 'Protección IP67 para exterior', alt: 'Protección IP67' },
+            { src: W + 'solar-movimiento.webp', caption: 'Detección de movimiento', alt: 'Detección de movimiento e infrarrojo' },
+            { src: W + 'solar-energia.webp', caption: 'Energía solar recargable', alt: 'Energía solar recargable' },
+            { src: W + 'solar-extension.webp', caption: 'Panel con cable de 5 metros', alt: 'Instalación extendida con cable de 5 metros' },
+            { src: W + 'solar-encendido.webp', caption: 'Baterías y encendido', alt: 'Baterías y botón de encendido' },
+            { src: W + 'solar-escenarios.webp', caption: 'Dónde usarla', alt: 'Escenarios de uso de la cámara solar' }
+        ]);
+        makeGallery('wg1t', [
+            { src: W + 'wg1t-principal.webp', caption: 'Alarma WiFi WG1T', alt: 'Alarma WiFi inteligente WG1T y sus funciones' },
+            { src: W + 'wg1t-hogar.webp', caption: 'Protege tu hogar', alt: 'Alarma WG1T en una sala' },
+            { src: W + 'wg1t-panel-luminoso.webp', caption: 'Panel luminoso con sirena 88 dB', alt: 'Panel luminoso con sirena interna' },
+            { src: W + 'wg1t-sonora-silenciosa.webp', caption: 'Modo sonoro o silencioso', alt: 'Alarma sonora o silenciosa' },
+            { src: W + 'wg1t-wifi-bateria.webp', caption: 'WiFi y batería de respaldo', alt: 'Tecnología WiFi y batería de respaldo de 3 horas' },
+            { src: W + 'wg1t-push-voz.webp', caption: 'Alertas push y control por voz', alt: 'Notificaciones push y control con Alexa o Google' },
+            { src: W + 'wg1t-antisabotaje.webp', caption: 'Antisabotaje', alt: 'Botón tamper antisabotaje' },
+            { src: W + 'wg1t-smart-life.webp', caption: 'App Smart Life', alt: 'Compatible con la app Smart Life' },
+            { src: W + 'wg1t-medidas.webp', caption: 'Medidas: 9 × 9 × 2.5 cm', alt: 'Características y medidas de la alarma' },
+            { src: W + 'wg1t-sensor-movimiento.webp', caption: 'Sensor de movimiento', alt: 'Sensor de movimiento de hasta 8 metros' },
+            { src: W + 'wg1t-sensor-puerta.webp', caption: 'Sensor magnético de puerta', alt: 'Sensor magnético de puerta' },
+            { src: W + 'wg1t-control-remoto.webp', caption: 'Control remoto incluido', alt: 'Control remoto y app en el celular' },
+            { src: W + 'wg1t-casa.webp', caption: 'Sensores en toda la casa', alt: 'Distribución de sensores en una casa' }
+        ]);
 
         // 4. Visor de imágenes
         function openLightbox(src, caption = '', alt = '') {
@@ -827,14 +888,16 @@
         function closeLightbox(event) {
             if (event && event.target !== event.currentTarget) return;
             document.getElementById('imageLightbox').classList.remove('open');
+            activeGallery = null;
             document.body.classList.remove('overflow-hidden');
         }
         document.addEventListener('keydown', (event) => {
             const lightboxOpen = document.getElementById('imageLightbox').classList.contains('open');
             if (event.key === 'Escape') closeLightbox();
             if (!lightboxOpen) return;
-            if (event.key === 'ArrowRight') { changeGallery(1); openCurrentGalleryImage(); }
-            if (event.key === 'ArrowLeft') { changeGallery(-1); openCurrentGalleryImage(); }
+            if (!activeGallery) return;
+            if (event.key === 'ArrowRight') { activeGallery.change(1); activeGallery.openCurrent(); }
+            if (event.key === 'ArrowLeft') { activeGallery.change(-1); activeGallery.openCurrent(); }
         });
 
         // 5. Formulario a WhatsApp
