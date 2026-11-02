@@ -1,0 +1,174 @@
+/* Seguridad 360 · concepto visual premium
+   Diseño aislado en rama de revisión. Las imágenes de producto NO se modifican. */
+:root {
+  --s360-ink: #071b36;
+  --s360-navy: #071b36;
+  --s360-navy-2: #0e315c;
+  --s360-blue: #076cf4;
+  --s360-blue-light: #dfeeff;
+  --s360-paper: #f6f9fd;
+  --s360-line: #e2eaf3;
+  --s360-muted: #50617a;
+  --s360-radius: 22px;
+}
+html { scroll-padding-top: 86px; }
+body { background: white; color: var(--s360-ink); }
+h1, h2, h3 { letter-spacing: -.035em; }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid #52a3ff !important; outline-offset: 4px;
+}
+#topbar {
+  background: rgba(5, 22, 45, .975) !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow: 0 14px 26px rgba(3,17,39,.12);
+}
+#topbar .font-display { color: #fff !important; letter-spacing: -.035em; }
+#topbar .font-display .block { color: #4eacff !important; }
+#topbar .lg\\:flex > a, #topbar .lg\\:flex a { color: #e6f0ff !important; transition: color .2s; }
+#topbar .lg\\:flex a:hover { color: #53aeff !important; }
+#topbar .bg-wa {
+  background: linear-gradient(120deg, #147cfa, #075cda) !important;
+  border: 1px solid rgba(255,255,255,.16);
+  box-shadow: 0 7px 21px rgba(1,105,243,.28);
+  border-radius: 12px !important;
+}
+#topbar .bg-wa:hover { filter: brightness(1.09); }
+#topbar #menuBtn { color: #fff !important; border-color: rgba(255,255,255,.23) !important; }
+#mobileMenu { background: #0a2446 !important; border-color: rgba(255,255,255,.12) !important; }
+#mobileMenu a { color: #fff; }
+#mobileMenu a:hover { background: rgba(255,255,255,.10) !important; }
+
+#hero {
+  isolation: isolate;
+  position: relative;
+  background:
+    radial-gradient(ellipse 49% 70% at 88% 13%, rgba(20,120,245,.23), transparent 70%),
+    radial-gradient(ellipse 44% 54% at 4% 100%, rgba(7,96,217,.25), transparent 75%),
+    linear-gradient(135deg, #041126 0%, #08274c 60%, #0a3667 100%) !important;
+}
+#hero:before {
+  content: "";
+  z-index: -1;
+  position: absolute; inset: 0;
+  opacity: .12;
+  background-image: linear-gradient(rgba(255,255,255,.14) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(90deg,transparent,black);
+  pointer-events: none;
+}
+#hero > .max-w-7xl { padding-top: clamp(70px, 8vw, 118px) !important; padding-bottom: clamp(74px, 8vw, 126px) !important; }
+#hero .eyebrow { color: #77c0ff !important; letter-spacing: .11em; }
+#hero h1 { font-size: clamp(2.65rem, 4.85vw, 4.9rem); line-height: 1.06; letter-spacing: -.055em; max-width: 740px; text-wrap: balance; }
+#hero h1 span { color: #33a0ff !important; }
+#hero p { color: #d0e1f7 !important; font-size: clamp(1rem, 1.4vw, 1.17rem); line-height: 1.75; }
+#hero .hero-cta-primary {
+  color: white !important; background: linear-gradient(120deg, #2389ff, #0064ea) !important;
+  border-radius: 13px !important; box-shadow: 0 15px 36px rgba(0, 89, 231, .27);
+  transition: transform .25s, box-shadow .25s;
+}
+#hero .hero-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(0,101,237,.4); }
+#hero .hero-cta-secondary { border: 1px solid rgba(255,255,255,.4) !important; border-radius: 13px !important; background: rgba(255,255,255,.045); }
+#hero .hero-cta-secondary:hover { background: rgba(255,255,255,.12); }
+#hero dl > a { border: 1px solid rgba(165,200,255,.2); background: rgba(255,255,255,.075); border-radius: 16px !important; transition: background .2s, transform .2s; }
+#hero dl > a:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+#hero .aspect-\\[16\\/11\\] { border-radius: 28px !important; border-color: rgba(209,229,255,.23) !important; }
+#hero video { filter: saturate(.92) contrast(1.02); }
+#hero .relative.reveal > .absolute { box-shadow: 0 16px 56px rgba(0,15,35,.17); }
+
+#garantias { border: 0 !important; background: white !important; }
+#garantias > div {
+  max-width: 1240px;
+  background: linear-gradient(125deg, #f0f7ff, #e7f0fb);
+  border: 1px solid #e2ebf7; border-radius: 23px;
+  padding: 27px clamp(18px, 3vw, 36px) !important;
+  margin-top: 23px; margin-bottom: 23px;
+}
+#garantias .w-11 { background: #deecff !important; color: #076de7 !important; border-radius: 14px !important; }
+#garantias b { color: #0b2342; }
+#garantias .text-suave { color: #526580 !important; }
+
+#productos { background: linear-gradient(180deg, #fff, #f5f9ff 34%, #f7faff) !important; }
+#productos .max-w-2xl { margin-left: auto; margin-right: auto; text-align: center; max-width: 780px; }
+#productos .eyebrow { justify-content: center; }
+#productos .eyebrow:after { content: ""; width: 1.5rem; height: 2px; background: currentColor; border-radius: 2px; }
+#productos h2 { font-size: clamp(2.05rem, 3.5vw, 3.75rem); }
+#productos .card {
+  border: 1px solid #dbe6f4; border-radius: 22px !important;
+  box-shadow: 0 9px 23px rgba(8,35,75,.055), 0 2px 5px rgba(8,35,75,.025);
+  overflow: hidden;
+}
+#productos .card-hover:hover { transform: translateY(-7px); box-shadow: 0 24px 48px rgba(8,44,94,.13); border-color: #b9d8fc; }
+#productos article > div:first-child {
+  background: linear-gradient(145deg, #f6faff, #eaf3fe) !important;
+  border-bottom: 1px solid #e1ebf5 !important;
+}
+#productos article > div:first-child img {
+  object-fit: contain !important; padding: 18px !important;
+  /* Mantener intacta cada foto original y mostrar el dispositivo completo. */
+}
+#productos article .p-7 { padding: clamp(20px, 2.5vw, 28px) !important; }
+#productos article h3 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.035em; }
+#productos article .font-display.text-4xl { color: #075fd5 !important; font-size: 2.35rem; }
+#productos article ul { color: #41516b; line-height: 1.6; }
+#productos article a.rounded-full { border-radius: 12px !important; }
+#productos article a.bg-wa { background: #086cde !important; }
+#productos article a.bg-wa:hover { background: #005bbd !important; }
+#productos article a.bg-tinta { background: #092a54 !important; }
+#productos article a.border-linea:hover { border-color: #076cf4 !important; color: #076cf4; }
+#productos article .bg-tinta.text-white { background: #075dd1 !important; }
+
+.card { border-radius: var(--s360-radius) !important; border-color: var(--s360-line) !important; box-shadow: 0 10px 34px rgba(6,39,83,.055) !important; }
+.card-hover:hover { box-shadow: 0 20px 46px rgba(5,41,89,.13) !important; }
+#que-proteger .card { background: #fff; }
+#que-proteger .card .w-12, #camara-solar .text-marca { color: #086ce4 !important; }
+#que-proteger a.rounded-full, #camara-solar a.rounded-full, #alarmas a.rounded-full, #como-comprar a.rounded-full { border-radius: 12px !important; }
+
+#camara-solar, #videos { background: #f3f8fe !important; }
+#camara-solar .aspect-square { background: white !important; }
+#camara-solar #solarGalleryMain { object-fit: contain !important; padding: 12px; }
+#camara-solar .gallery-thumb { border-radius: 12px; overflow: hidden; }
+#camara-solar .card { background: white; }
+#alarmas img { object-fit: contain !important; }
+#alarmas .card { background: #fff; }
+#instalacion {
+  background: linear-gradient(132deg, #06172d, #103768) !important;
+  color: white;
+}
+#como-comprar { background: #fff !important; }
+#videos .card { background: #fff; }
+#faq details { border-radius: 16px !important; }
+#faq summary { line-height: 1.45; }
+#cotizar { background: linear-gradient(145deg, #edf5ff, #f7faff) !important; }
+#cotizar .card { box-shadow: 0 16px 44px rgba(12,55,101,.085) !important; }
+footer { background: #06182e !important; }
+footer a:hover { color: #68b7ff !important; }
+
+@media (max-width: 1023px) {
+  #topbar .lg\\:flex { display: none; }
+  #hero > .max-w-7xl { gap: 3rem !important; }
+  #hero .relative.reveal > .absolute { max-width: calc(100% - 12px); }
+}
+@media (max-width: 767px) {
+  #topbar .h-16 { height: 66px; }
+  #topbar .font-display { font-size: 1rem !important; }
+  #hero > .max-w-7xl { padding-top: 48px !important; padding-bottom: 70px !important; }
+  #hero h1 { font-size: clamp(2.3rem, 9.2vw, 3.8rem); line-height: 1.09; }
+  #hero .eyebrow { font-size: .63rem; line-height: 1.4; }
+  #hero .hero-cta-primary, #hero .hero-cta-secondary { width: 100%; }
+  #hero dl { gap: 8px !important; }
+  #hero dl > a { padding: 11px !important; }
+  #hero dl dd.font-display { font-size: 1.25rem !important; }
+  #hero .aspect-\\[16\\/11\\] { aspect-ratio: 16/10; border-radius: 18px !important; }
+  #hero .relative.reveal > .absolute { left: 10px; bottom: -24px; transform: scale(.9); transform-origin: bottom left; }
+  #garantias > div { margin: 14px 12px !important; padding: 20px !important; gap: 20px !important; }
+  #garantias b { font-size: .87rem; }
+  section.py-20 { padding-top: 64px !important; padding-bottom: 68px !important; }
+  #productos .max-w-2xl { margin-bottom: 32px !important; }
+  #productos article > div:first-child { aspect-ratio: 4/3; }
+  #productos article > div:first-child img { padding: 15px !important; }
+  #productos article .font-display.text-4xl { font-size: 2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hero .hero-cta-primary:hover, #hero dl > a:hover { transform: none; }
+}
